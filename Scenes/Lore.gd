@@ -7,10 +7,23 @@ var texts = [
 	"...um deles sendo o Reino dos Números. Um reino habitado por seres fantásticos e civilizações humanas.",
 	"Então os deuses deixaram como presente para a humanidade A Concha Sagrada da Matemática.",
 	"Essa concha é um artefato poderoso capaz de manter a paz e harmonia no universo.",
-	"Porém, um terrível vilão, chamado Euler, aparece e rouba a Concha e, com ela, ele será capaz de governar todos os Reinos da Matemática.",
+	"Porém, um terrível vilão, chamado Euler, aparece e rouba a Concha.",
 	"Mas existe uma lenda. De um herói destemido que irá deter o grande vilão e restaurar a paz no reino.",
-	"Você é Samir, um habitante do Reino dos Números. Seu objetivo é recuperar A Concha, que está trancada no Castelo de Euler. Mas para isso, você precisa resolver diversos enigmas matemáticos espalhados pelo reino para obter os fragmentos da chave que guardam a concha.",
-	"Boa sorte!"
+	"Você é Samir, um habitante do Reino dos Números. Seu objetivo é recuperar A Concha, que está trancada no Castelo de Euler.",
+	"Mas para isso, você precisa resolver diversos enigmas matemáticos espalhados pelo reino para obter os fragmentos da chave que guardam a concha."
+]
+
+var extensions = [
+	".jpg",
+	".jpg",
+	".jpg",
+	".jpg",
+	".png",
+	".jpg",
+	".jpg",
+	".jpg",
+	".jpg",
+	".jpg"
 ]
 
 var current_text = 0
@@ -22,13 +35,15 @@ func _ready():
 
 func reload():
 	$Legenda.text = texts[current_text]
-	$Slide.texture = load("res://Assets/Lore/" + str(current_text) + ".jpg")
+	$Slide.texture = load("res://Assets/Lore/" + str(current_text) + extensions[current_text])
 
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	pass
+	if Input.is_action_just_pressed("ui_right"):
+		current_text += 1
+		reload()
 
 
 func _on_timer_timeout():

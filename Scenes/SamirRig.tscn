@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://r8ic662go4fn"]
+
+[ext_resource type="Texture2D" uid="uid://wtjj2bqpf1wj" path="res://Assets/The Hero/hero_no_arm.png" id="1_qpv4q"]
+[ext_resource type="Texture2D" uid="uid://lktoopa2yjk4" path="res://Assets/The Hero/arm.png" id="2_ysvrk"]
+
+[node name="SamirRig" type="Node2D"]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton2D"]
+position = Vector2(4, -17)
+scale = Vector2(0.142578, 0.142578)
+texture = ExtResource("1_qpv4q")
+
+[node name="ArmBone" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(-3, 0)
+rotation = 2.49547
+scale = Vector2(1, 1)
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Skeleton2D/ArmBone"]
+position = Vector2(9, 21)
+rotation = -2.24427
+scale = Vector2(0.142578, 0.142578)
+texture = ExtResource("2_ysvrk")
