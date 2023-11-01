@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://dtprumle7jccg"]
+
+[ext_resource type="Script" path="res://Scenes/Lore.gd" id="1_no6j3"]
+[ext_resource type="Texture2D" uid="uid://b2mjp7im177k7" path="res://Assets/Lore/0.jpg" id="2_nmif1"]
+
+[node name="Lore" type="CanvasLayer"]
+script = ExtResource("1_no6j3")
+
+[node name="Slide" type="TextureRect" parent="."]
+offset_right = 1276.0
+offset_bottom = 875.0
+texture = ExtResource("2_nmif1")
+expand_mode = 2
+
+[node name="Panel" type="Panel" parent="."]
+offset_top = 453.0
+offset_right = 1282.0
+offset_bottom = 722.0
+
+[node name="Legenda" type="RichTextLabel" parent="."]
+offset_left = 17.0
+offset_top = 466.0
+offset_right = 1259.0
+offset_bottom = 700.0
+theme_override_font_sizes/normal_font_size = 32
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
