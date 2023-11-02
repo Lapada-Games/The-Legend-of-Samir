@@ -259,3 +259,10 @@ position = Vector2(-45, 30)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_wo4pv")
 autoplay = "default"
+
+[node name="TEST" type="Timer" parent="."]
+wait_time = 1.731
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="TEST" to="." method="_on_test_timeout"]
