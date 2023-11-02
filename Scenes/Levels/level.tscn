@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://7babjxlg1ary"]
+[gd_scene load_steps=10 format=3 uid="uid://7babjxlg1ary"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Background.gd" id="1_fnnrr"]
 [ext_resource type="Texture2D" uid="uid://ciqwnw6e7mci6" path="res://Assets/spritesheets/sheet.png" id="1_ux70b"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cxoc0jrx5c2fi" path="res://Assets/backgrounds/back.png" id="2_dnlnx"]
 [ext_resource type="Texture2D" uid="uid://bocobcdlleer1" path="res://Assets/backgrounds/middle.png" id="3_cbky6"]
 [ext_resource type="PackedScene" uid="uid://r8ic662go4fn" path="res://Scenes/SamirRig.tscn" id="3_ppgkd"]
+[ext_resource type="PackedScene" uid="uid://cvwg24cuova02" path="res://Scenes/Operations.tscn" id="7_j8pmd"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y2iie"]
 texture = ExtResource("1_ux70b")
@@ -153,3 +154,5 @@ script = ExtResource("1_xt1b8")
 
 [node name="SamirRig" parent="." instance=ExtResource("3_ppgkd")]
 position = Vector2(96, 501)
+
+[node name="Node2D" parent="." instance=ExtResource("7_j8pmd")]

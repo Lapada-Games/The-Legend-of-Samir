@@ -520,14 +520,14 @@ scale = Vector2(-0.5, 0.5)
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 
 [node name="LeftLeg" type="Sprite2D" parent="Skeleton2D"]
-position = Vector2(2.06999, 10.7462)
-rotation = -0.154972
+position = Vector2(-26.4048, 9.54962)
+rotation = 0.740535
 scale = Vector2(0.232416, 0.232416)
 texture = ExtResource("1_lukw0")
 
 [node name="RightLeg" type="Sprite2D" parent="Skeleton2D"]
-position = Vector2(4.49347, 10.5691)
-rotation = -0.133555
+position = Vector2(29.5243, -3.36906)
+rotation = -1.06601
 scale = Vector2(0.232416, 0.232416)
 texture = ExtResource("1_lukw0")
 
