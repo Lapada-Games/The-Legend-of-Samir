@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4nxyqif7d8nd"]
+
+[ext_resource type="Texture2D" uid="uid://00vy6poirrox" path="res://Assets/spritesheets/redbuttonup.png" id="1_top4y"]
+[ext_resource type="Texture2D" uid="uid://b8hygph41d4bw" path="res://Assets/spritesheets/redbuttondown.png" id="2_kxxeg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tvn4n"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_top4y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_kxxeg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="RedButton" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_tvn4n")
+autoplay = "default"
+frame_progress = 0.446016

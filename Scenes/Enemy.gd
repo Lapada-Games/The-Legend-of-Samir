@@ -1,7 +1,7 @@
 extends CharacterBody2D
 class_name Enemy
 
-const SPEED = 120.0
+const SPEED = 130.0
 
 var should_kill_player = true
 

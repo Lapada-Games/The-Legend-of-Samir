@@ -11,9 +11,13 @@ config_version=5
 [application]
 
 config/name="The Legend of Samir"
-run/main_scene="res://Scenes/Lore.tscn"
+run/main_scene="res://Scenes/LapadaGames.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+Global="*res://global.gd"
 
 [display]
 

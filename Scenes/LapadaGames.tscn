@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://6tb0f07qmo0s"]
+
+[ext_resource type="Script" path="res://Scenes/LapadaGames.gd" id="1_0cwx2"]
+[ext_resource type="VideoStream" path="res://Assets/output.ogv" id="1_r0sl8"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0cwx2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -71.0
+offset_top = -111.0
+offset_right = 904.0
+offset_bottom = 864.0
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 61.0
+offset_right = 1913.0
+offset_bottom = 1149.0
+scale = Vector2(0.426492, 0.426492)
+stream = ExtResource("1_r0sl8")
+autoplay = true
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -58.0
+offset_top = -838.0
+offset_right = 917.0
+offset_bottom = 137.0
+
+[node name="ColorRect3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -68.0
+offset_top = 498.0
+offset_right = 907.0
+offset_bottom = 1473.0
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://du5en3u8cseu7"]
+
+[ext_resource type="Script" path="res://Scenes/Menu.gd" id="1_0qoqw"]
+[ext_resource type="Texture2D" uid="uid://bsmnfrha1sldq" path="res://Assets/menubg.png" id="1_ucd37"]
+[ext_resource type="Texture2D" uid="uid://b8uqn4mwqes1r" path="res://Assets/logo.png" id="2_wyeo0"]
+[ext_resource type="PackedScene" uid="uid://b4nxyqif7d8nd" path="res://Assets/spritesheets/red_button.tscn" id="3_76iuk"]
+[ext_resource type="FontFile" uid="uid://b4eycjheda6jr" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="4_yqhxr"]
+[ext_resource type="Texture2D" uid="uid://d0vuvqganmqbo" path="res://Assets/lapadagames.png" id="5_sml6w"]
+[ext_resource type="AudioStream" uid="uid://drgtw8t63mjo2" path="res://Assets/Audio/Menu Theme.mp3" id="6_lhwcu"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_0qoqw")
+
+[node name="BG" type="Sprite2D" parent="."]
+texture_filter = 2
+position = Vector2(0, -101)
+scale = Vector2(0.783203, 0.783203)
+texture = ExtResource("1_ucd37")
+centered = false
+
+[node name="Logo" type="Sprite2D" parent="."]
+texture_filter = 2
+position = Vector2(205.773, 84.875)
+scale = Vector2(0.863773, 0.863772)
+texture = ExtResource("2_wyeo0")
+
+[node name="RedButton" parent="." instance=ExtResource("3_76iuk")]
+position = Vector2(494, 392)
+scale = Vector2(3, 3)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 542.0
+offset_top = 379.0
+offset_right = 702.0
+offset_bottom = 414.0
+theme_override_colors/font_color = Color(0.0901961, 0.211765, 0.290196, 1)
+theme_override_fonts/font = ExtResource("4_yqhxr")
+theme_override_font_sizes/font_size = 32
+text = "START"
+
+[node name="Lapadagames" type="Sprite2D" parent="."]
+position = Vector2(95.5385, 544.125)
+scale = Vector2(0.113426, 0.113426)
+texture = ExtResource("5_sml6w")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_lhwcu")
+autoplay = true
