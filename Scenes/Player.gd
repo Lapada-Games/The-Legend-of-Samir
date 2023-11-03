@@ -2,6 +2,9 @@ extends CharacterBody2D
 class_name Player
 
 signal attacked
+signal dead
+
+var is_dead = false
 
 func _physics_process(delta):
 	if $RayCast2D.is_colliding():
@@ -11,6 +14,12 @@ func _physics_process(delta):
 				$AnimationPlayer.play("run_attack")
 				
 
+func die():
+	if not is_dead:
+		$AnimationPlayer.play("RESET")
+		$AnimationPlayer.play("dead")
+		is_dead = true
+		emit_signal("dead")
 
 func _on_animation_player_animation_finished(anim_name):
 	if anim_name == "run_attack":

@@ -100,7 +100,8 @@ func check():
 	
 	if int(option_text) == answers[Global.level][current_question]:
 		print("acertou")
-		next_question()
+		emit_signal("success")
+#		next_question()
 	else:
 		print("errou")
 

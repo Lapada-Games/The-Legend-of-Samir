@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://r8ic662go4fn"]
+[gd_scene load_steps=16 format=3 uid="uid://r8ic662go4fn"]
 
 [ext_resource type="Texture2D" uid="uid://opjduxttip4x" path="res://Assets/The Hero/skeleton/leg.png" id="1_lukw0"]
 [ext_resource type="Script" path="res://Scenes/Player.gd" id="1_sn30m"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://lktoopa2yjk4" path="res://Assets/The Hero/arm.png" id="2_ysvrk"]
 [ext_resource type="Texture2D" uid="uid://3jmbotgo8vky" path="res://Assets/The Hero/head/head_neutral.png" id="3_cfx5k"]
 [ext_resource type="Texture2D" uid="uid://dvvgyndpykvrb" path="res://Assets/The Hero/head/head_attack.png" id="5_iwr1t"]
+[ext_resource type="Texture2D" uid="uid://cjh08ydvbt0c0" path="res://Assets/The Hero/head/head_dead.png" id="7_fwlj3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grjlo"]
 radius = 57.0
@@ -645,10 +646,86 @@ tracks/10/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_kifmc"]
+resource_name = "dead"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Skeleton2D/Torso:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.45843]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Skeleton2D/Torso/Head:rotation")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -0.907317, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Skeleton2D/Torso/LeftArmJoint:rotation")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [2.49489, 2.08497, 1.21299]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Skeleton2D/Torso:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(30, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Skeleton2D/Torso/LegJoint1:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.5708, 2.62182, 1.3338]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Skeleton2D/Torso/Head/Head:texture")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_fwlj3")]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_stfnc"]
 _data = {
 "RESET": SubResource("Animation_rrvl2"),
 "attack": SubResource("Animation_e13vh"),
+"dead": SubResource("Animation_kifmc"),
 "idle": SubResource("Animation_sk0yo"),
 "run": SubResource("Animation_ylns2"),
 "run_attack": SubResource("Animation_lrupj")
@@ -661,14 +738,14 @@ script = ExtResource("1_sn30m")
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 
 [node name="LeftLeg" type="Sprite2D" parent="Skeleton2D"]
-position = Vector2(-10.6979, 15.8875)
-rotation = -0.314641
+position = Vector2(10.1028, -9.5181)
+rotation = 1.21096
 scale = Vector2(0.232416, 0.232416)
 texture = ExtResource("1_lukw0")
 
 [node name="RightLeg" type="Sprite2D" parent="Skeleton2D"]
-position = Vector2(-1.34032, 14.6208)
-rotation = 1.01351
+position = Vector2(11.8164, 17.1961)
+rotation = 1.45038
 scale = Vector2(0.232416, 0.232416)
 texture = ExtResource("1_lukw0")
 
@@ -695,6 +772,7 @@ texture = ExtResource("3_cfx5k")
 [node name="LeftArmJoint" type="Bone2D" parent="Skeleton2D/Torso"]
 position = Vector2(-15, -55)
 rotation = 2.49489
+scale = Vector2(1, 1)
 
 [node name="Arm" type="Sprite2D" parent="Skeleton2D/Torso/LeftArmJoint"]
 z_index = -1

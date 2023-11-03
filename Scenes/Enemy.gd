@@ -12,5 +12,6 @@ func _physics_process(delta):
 	
 	
 	if $RayCast2D.is_colliding() and should_kill_player:
+		var collider = $RayCast2D.get_collider()
 		if $RayCast2D.get_collider() is Player:
-			print("vai mamar o player")
+			collider.die()

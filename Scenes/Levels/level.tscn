@@ -168,3 +168,4 @@ scale = Vector2(0.5, -0.5)
 
 [connection signal="success" from="Operations" to="." method="_on_operations_success"]
 [connection signal="attacked" from="SamirRig" to="." method="_on_samir_rig_attacked"]
+[connection signal="dead" from="SamirRig" to="." method="_on_samir_rig_dead"]

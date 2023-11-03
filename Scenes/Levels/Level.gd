@@ -19,3 +19,8 @@ func _on_operations_success():
 func _on_samir_rig_attacked():
 	if $EnemySpawner.has_enemy():
 		$EnemySpawner.delete_enemy()
+
+
+func _on_samir_rig_dead():
+	$TileMap.paused = true
+	$ParallaxBackground.paused = true
