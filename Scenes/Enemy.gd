@@ -9,15 +9,17 @@ var dead = false
 
 var sprites = [
 	"fox",
-	"toad"
+	"toad",
+	"thief_fox"
 ]
 
 var current_sprite = 0
 
 func randomize_sprite():
-	if Global.level == 0:
+	if Global.level == 0 or Global.level == 1:
 		current_sprite = rng.randi_range(0, 1)
-
+	elif Global.level == 2:
+		current_sprite = rng.randi_range(1, 2)
 
 func _physics_process(delta):
 	velocity.x = -1 * speed
@@ -36,9 +38,10 @@ func _physics_process(delta):
 	if $RayCast2D.is_colliding() and should_kill_player:
 		var collider = $RayCast2D.get_collider()
 		if $RayCast2D.get_collider() is Player:
-			attacking = true
-			collider.die() # the player dies
-			$RayCast2D.enabled = false
+			if not collider.can_run_away:
+				attacking = true
+				collider.die() # the player dies
+				$RayCast2D.enabled = false
 
 
 func die():

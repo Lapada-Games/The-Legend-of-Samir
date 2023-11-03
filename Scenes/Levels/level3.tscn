@@ -1,0 +1,188 @@
+[gd_scene load_steps=14 format=3 uid="uid://ceowwtjmox7ir"]
+
+[ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="1_l6yj8"]
+[ext_resource type="Script" path="res://Scenes/Levels/Background.gd" id="2_kug77"]
+[ext_resource type="Texture2D" uid="uid://cys4ojqq7eu11" path="res://Assets/backgrounds/winter/w1.png" id="3_q08ed"]
+[ext_resource type="Texture2D" uid="uid://xwswx3qhb4qa" path="res://Assets/backgrounds/winter/w2.png" id="4_qqqsl"]
+[ext_resource type="Texture2D" uid="uid://civaibqt65lg4" path="res://Assets/backgrounds/winter/w3.png" id="5_jp4cc"]
+[ext_resource type="Texture2D" uid="uid://ciqwnw6e7mci6" path="res://Assets/spritesheets/sheet.png" id="6_3dht1"]
+[ext_resource type="Script" path="res://chao.gd" id="7_wk8al"]
+[ext_resource type="PackedScene" uid="uid://cvwg24cuova02" path="res://Scenes/Operations.tscn" id="8_grgtv"]
+[ext_resource type="PackedScene" uid="uid://r8ic662go4fn" path="res://Scenes/SamirRig.tscn" id="9_f5txo"]
+[ext_resource type="Script" path="res://Scenes/Levels/EnemySpawner.gd" id="10_ohwpo"]
+[ext_resource type="AudioStream" uid="uid://cwcjn40ti0ybu" path="res://Assets/Audio/Level3.mp3" id="11_f7n07"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y2iie"]
+texture = ExtResource("6_3dht1")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+15:0/0 = 0
+16:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+7:2/0 = 0
+8:2/0 = 0
+9:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+12:2/0 = 0
+13:2/0 = 0
+14:2/0 = 0
+15:2/0 = 0
+16:2/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+7:3/0 = 0
+8:3/0 = 0
+9:3/0 = 0
+10:3/0 = 0
+11:3/0 = 0
+12:3/0 = 0
+13:3/0 = 0
+14:3/0 = 0
+15:3/0 = 0
+16:3/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+7:4/0 = 0
+8:4/0 = 0
+9:4/0 = 0
+10:4/0 = 0
+11:4/0 = 0
+12:4/0 = 0
+13:4/0 = 0
+14:4/0 = 0
+15:4/0 = 0
+16:4/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+7:5/0 = 0
+8:5/0 = 0
+9:5/0 = 0
+10:5/0 = 0
+11:5/0 = 0
+12:5/0 = 0
+13:5/0 = 0
+14:5/0 = 0
+15:5/0 = 0
+16:5/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+7:6/0 = 0
+8:6/0 = 0
+9:6/0 = 0
+10:6/0 = 0
+11:6/0 = 0
+12:6/0 = 0
+13:6/0 = 0
+14:6/0 = 0
+15:6/0 = 0
+16:6/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_tkm8a"]
+sources/0 = SubResource("TileSetAtlasSource_y2iie")
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_l6yj8")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+script = ExtResource("2_kug77")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, -119)
+motion_scale = Vector2(0.5, 0)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(2, 2)
+texture = ExtResource("3_q08ed")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, -119)
+motion_scale = Vector2(0.7, 0)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+scale = Vector2(2, 2)
+texture = ExtResource("4_qqqsl")
+centered = false
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+position = Vector2(0, -119)
+motion_scale = Vector2(0.9, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+scale = Vector2(2, 2)
+texture = ExtResource("5_jp4cc")
+centered = false
+
+[node name="TileMap" type="TileMap" parent="."]
+scale = Vector2(2, 2)
+tile_set = SubResource("TileSet_tkm8a")
+format = 2
+layer_0/tile_data = PackedInt32Array(1048576, 720896, 2, 1048577, 720896, 2, 1114112, 720896, 1, 1114113, 720896, 1, 1179648, 720896, 1, 1179649, 720896, 1, 1048578, 720896, 2, 1114114, 720896, 1, 1179650, 720896, 1, 1048579, 720896, 2, 1114115, 720896, 1, 1179651, 720896, 1, 1048580, 720896, 2, 1114116, 720896, 1, 1179652, 720896, 1, 1048581, 720896, 2, 1114117, 720896, 1, 1179653, 720896, 1, 1048582, 720896, 2, 1114118, 720896, 1, 1179654, 720896, 1, 1048583, 720896, 2, 1114119, 720896, 1, 1179655, 720896, 1, 1048584, 720896, 2, 1114120, 720896, 1, 1179656, 720896, 1, 1048585, 720896, 2, 1114121, 720896, 1, 1179657, 720896, 1, 1048586, 720896, 2, 1114122, 720896, 1, 1179658, 720896, 1, 1048587, 720896, 2, 1114123, 720896, 1, 1179659, 720896, 1, 1048588, 720896, 2, 1114124, 720896, 1, 1179660, 720896, 1, 1048589, 720896, 2, 1114125, 720896, 1, 1179661, 720896, 1, 1048590, 720896, 2, 1114126, 720896, 1, 1179662, 720896, 1, 1048591, 720896, 2, 1114127, 720896, 1, 1179663, 720896, 1, 1048592, 720896, 2, 1114128, 720896, 1, 1179664, 720896, 1, 1048593, 720896, 2, 1114129, 720896, 1, 1179665, 720896, 1, 1048594, 720896, 2, 1114130, 720896, 1, 1179666, 720896, 1, 1048595, 720896, 2, 1114131, 720896, 1, 1179667, 720896, 1, 1048596, 720896, 2, 1114132, 720896, 1, 1179668, 720896, 1, 1048597, 720896, 2, 1114133, 720896, 1, 1179669, 720896, 1, 1048598, 720896, 2, 1114134, 720896, 1, 1179670, 720896, 1, 1048599, 720896, 2, 1114135, 720896, 1, 1179671, 720896, 1, 1048600, 720896, 2, 1114136, 720896, 1, 1179672, 720896, 1, 1048601, 720896, 2, 1114137, 720896, 1, 1179673, 720896, 1, 1048602, 720896, 2, 1114138, 720896, 1, 1179674, 720896, 1, 1048603, 720896, 2, 1114139, 720896, 1, 1179675, 720896, 1, 1048604, 720896, 2, 1114140, 720896, 1, 1179676, 720896, 1, 1048605, 720896, 2, 1114141, 720896, 1, 1179677, 720896, 1, 1048606, 720896, 2, 1114142, 720896, 1, 1179678, 720896, 1, 1048607, 720896, 2, 1114143, 720896, 1, 1179679, 720896, 1, 1048608, 720896, 2, 1114144, 720896, 1, 1179680, 720896, 1, 1048609, 720896, 2, 1114145, 720896, 1, 1179681, 720896, 1, 1048610, 720896, 2, 1114146, 720896, 1, 1179682, 720896, 1, 1048611, 720896, 2, 1114147, 720896, 1, 1179683, 720896, 1, 1048612, 720896, 2, 1114148, 720896, 1, 1179684, 720896, 1, 1048613, 720896, 2, 1114149, 720896, 1, 1179685, 720896, 1, 1048614, 720896, 2, 1114150, 720896, 1, 1179686, 720896, 1, 1048615, 720896, 2, 1114151, 720896, 1, 1179687, 720896, 1, 1048616, 720896, 2, 1114152, 720896, 1, 1179688, 720896, 1, 1048617, 720896, 2, 1114153, 720896, 1, 1179689, 720896, 1, 1048618, 720896, 2, 1114154, 720896, 1, 1179690, 720896, 1, 1048619, 720896, 2, 1114155, 720896, 1, 1179691, 720896, 1, 1048620, 720896, 2, 1114156, 720896, 1, 1179692, 720896, 1, 1048621, 720896, 2, 1114157, 720896, 1, 1179693, 720896, 1, 1048622, 720896, 2, 1114158, 720896, 1, 1179694, 720896, 1, 1048623, 720896, 2, 1114159, 720896, 1, 1179695, 720896, 1, 1048624, 720896, 2, 1114160, 720896, 1, 1179696, 720896, 1, 1048625, 720896, 2, 1114161, 720896, 1, 1179697, 720896, 1)
+script = ExtResource("7_wk8al")
+
+[node name="Operations" parent="." instance=ExtResource("8_grgtv")]
+
+[node name="SamirRig" parent="." instance=ExtResource("9_f5txo")]
+position = Vector2(96, 501)
+rotation = 3.14159
+scale = Vector2(0.5, -0.5)
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+position = Vector2(852, 468)
+script = ExtResource("10_ohwpo")
+
+[node name="Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_f7n07")
+autoplay = true
+
+[node name="AfterDeath" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="ended" from="Operations" to="." method="_on_operations_ended"]
+[connection signal="failed" from="Operations" to="." method="_on_operations_failed"]
+[connection signal="success" from="Operations" to="." method="_on_operations_success"]
+[connection signal="attacked" from="SamirRig" to="." method="_on_samir_rig_attacked"]
+[connection signal="dead" from="SamirRig" to="." method="_on_samir_rig_dead"]
+[connection signal="timeout" from="AfterDeath" to="." method="_on_after_death_timeout"]

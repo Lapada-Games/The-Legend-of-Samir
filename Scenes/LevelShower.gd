@@ -1,21 +1,16 @@
 extends Node2D
 
 var level_names = [
-	"PRAIA DOS NÚMEROS",
-	"NÃO SEI VOU VER",
-	"NÃO SEI VOU VER",
+	"PRAIA DA ADIÇÃO",
+	"PLANÍCIE DA SUBTRAÇÃO",
+	"VALES DA MULTIPLICAÇÃO",
 	"CASTELO DO EULER"
 ]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+	$Label.text = level_names[Global.level]
 
 
 func _on_audio_stream_player_finished():
-	get_tree().change_scene_to_file("res://Scenes/Levels/level.tscn") # TODO: change this later
+	get_tree().change_scene_to_file("res://Scenes/Levels/level" + str(Global.level + 1) + ".tscn") # TODO: change this later

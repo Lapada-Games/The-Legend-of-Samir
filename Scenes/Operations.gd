@@ -2,6 +2,7 @@ extends Node2D
 
 signal success
 signal failed
+signal ended
 
 var rng = RandomNumberGenerator.new()
 
@@ -17,25 +18,31 @@ var operations = [
 	],
 	# LEVEL 2
 	[
-		"5 + 5",
-		"50 + 65",
-		"10 + 32",
-		"21 + 4",
-		"6 + 9",
-		"6 + 11",
+		"13 - 5",
+		"40 + 25",
+		"110 - 30",
+		"21 - 4",
+		"99 - 69",
+		"21 - 11"
+	],
+	# LEVEL 3
+	[
+		"7 x 8",
+		"5 x 8",
+		"9 x 9",
+		"8 x 4",
+		"20 x 3",
+		"11 x 4"
 	]
 ]
 
 var answers = [
 	# LEVEL 1
-	[
-		4,
-		5,
-		7,
-		27,
-		16,
-		35
-	]
+	[4, 5, 7, 27, 16, 35],
+	# LEVEL 2
+	[8, 65, 80, 17, 30, 10],
+	# LEVEL 3
+	[56, 40, 81, 32, 60, 44],
 ]
 
 
@@ -80,22 +87,17 @@ func render_operation():
 	# set all options to be random numbers
 	var random_answers = []
 	for i in range(4):
-		random_answers.append(rng.randi_range(1, 20))
-	
-	# check for repeated values
-	for i in range(4):
-		for j in range(1, 4):
-			print(i, j)
-			if i == j: continue
-			
-			while random_answers[i] == random_answers[j] or random_answers[i] == answers[Global.level][current_question]:
-				random_answers[i] = rng.randi_range(1, 20)
+		var random_answer = rng.randi_range(1, (Global.level + 1) * 20)
+		
+		while random_answer in random_answers or random_answer == answers[Global.level][current_question]:
+			random_answer = rng.randi_range(1, (Global.level + 1) * 20)
+		
+		random_answers.append(random_answer)
 	
 		get_node("Option" + str(i + 1) + "/Label").text = str(random_answers[i])
 	
 	# choose a random index for being the answer
 	var answer_index = rng.randi_range(0, 3)
-	print(answer_index)
 	
 	get_node("Option" + str(answer_index + 1) + "/Label").text = str(answers[Global.level][current_question])
 
@@ -121,9 +123,24 @@ func check():
 		$Option4/Label.text = ""
 		emit_signal("failed")
 
+func disable():
+	has_answered = true
+	$Panel/Label.text = "FALHOU"
+	$Option1/Label.text = ""
+	$Option2/Label.text = ""
+	$Option3/Label.text = ""
+	$Option4/Label.text = ""
+
 func next_question():
 	current_question += 1
-	if current_question >= len(operations[Global.level]): return # TODO: what happens next
+	if current_question >= len(operations[Global.level]):
+		emit_signal("ended")
+		$Panel/Label.text = "GANHOU!"
+		$Option1/Label.visible = false
+		$Option2/Label.visible = false
+		$Option3/Label.visible = false
+		$Option4/Label.visible = false
+		return
 	render_operation()
 	
 

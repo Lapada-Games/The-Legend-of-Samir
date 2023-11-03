@@ -1,12 +1,15 @@
-[gd_scene load_steps=37 format=3 uid="uid://crkjvwmwbaffb"]
+[gd_scene load_steps=54 format=3 uid="uid://crkjvwmwbaffb"]
 
 [ext_resource type="Script" path="res://Scenes/Enemy.gd" id="1_afpwt"]
 [ext_resource type="Texture2D" uid="uid://c0i3ua1kwse0k" path="res://Assets/spritesheets/Toad_Walk.png" id="2_0qfk3"]
-[ext_resource type="Texture2D" uid="uid://cip5trtvodwhl" path="res://Assets/spritesheets/fox_walk.png" id="2_7017l"]
+[ext_resource type="Texture2D" uid="uid://dour07js3r2u3" path="res://Assets/spritesheets/fox_walk.png" id="2_7017l"]
 [ext_resource type="Texture2D" uid="uid://cesch5ivtcajv" path="res://Assets/spritesheets/fox_attack.png" id="2_pb03c"]
 [ext_resource type="Texture2D" uid="uid://dy8hrvhl4eqlx" path="res://Assets/spritesheets/fox_death.png" id="3_1iidn"]
 [ext_resource type="Texture2D" uid="uid://dp0isilu1h2ps" path="res://Assets/spritesheets/Toad_Attack.png" id="4_pi64l"]
+[ext_resource type="Texture2D" uid="uid://cip5trtvodwhl" path="res://Assets/spritesheets/thief_fox_walk.png" id="4_q2b1v"]
 [ext_resource type="Texture2D" uid="uid://cqk1frv03cph6" path="res://Assets/spritesheets/Toad_Death.png" id="5_8e25t"]
+[ext_resource type="Texture2D" uid="uid://bl44540bbfkbt" path="res://Assets/spritesheets/fox_Attack.png" id="5_epw7b"]
+[ext_resource type="Texture2D" uid="uid://pax12v3cmpje" path="res://Assets/spritesheets/fox_death2.png" id="6_ysn8l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rirw3"]
 atlas = ExtResource("2_pb03c")
@@ -36,21 +39,77 @@ region = Rect2(80, 0, 80, 64)
 atlas = ExtResource("3_1iidn")
 region = Rect2(160, 0, 80, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0c65l"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgl2n"]
 atlas = ExtResource("2_7017l")
 region = Rect2(0, 0, 80, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kvw2a"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_myifk"]
 atlas = ExtResource("2_7017l")
 region = Rect2(80, 0, 80, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u4wot"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxir4"]
 atlas = ExtResource("2_7017l")
 region = Rect2(160, 0, 80, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fk8nm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8idh"]
 atlas = ExtResource("2_7017l")
 region = Rect2(240, 0, 80, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5uxr"]
+atlas = ExtResource("5_epw7b")
+region = Rect2(0, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dy737"]
+atlas = ExtResource("5_epw7b")
+region = Rect2(60, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pv8l"]
+atlas = ExtResource("5_epw7b")
+region = Rect2(120, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m6jnt"]
+atlas = ExtResource("5_epw7b")
+region = Rect2(180, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v1tpk"]
+atlas = ExtResource("6_ysn8l")
+region = Rect2(0, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4r6ah"]
+atlas = ExtResource("6_ysn8l")
+region = Rect2(60, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ct38v"]
+atlas = ExtResource("6_ysn8l")
+region = Rect2(120, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bw4iv"]
+atlas = ExtResource("6_ysn8l")
+region = Rect2(180, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bycar"]
+atlas = ExtResource("6_ysn8l")
+region = Rect2(240, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2f32u"]
+atlas = ExtResource("6_ysn8l")
+region = Rect2(300, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rs313"]
+atlas = ExtResource("4_q2b1v")
+region = Rect2(0, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ikg3"]
+atlas = ExtResource("4_q2b1v")
+region = Rect2(60, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8x5bd"]
+atlas = ExtResource("4_q2b1v")
+region = Rect2(120, 0, 60, 40)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq0eq"]
+atlas = ExtResource("4_q2b1v")
+region = Rect2(180, 0, 60, 40)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_emgl1"]
 atlas = ExtResource("4_pi64l")
@@ -151,19 +210,76 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_0c65l")
+"texture": SubResource("AtlasTexture_tgl2n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kvw2a")
+"texture": SubResource("AtlasTexture_myifk")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u4wot")
+"texture": SubResource("AtlasTexture_hxir4")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fk8nm")
+"texture": SubResource("AtlasTexture_d8idh")
 }],
 "loop": true,
 "name": &"fox_walk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v5uxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dy737")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pv8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m6jnt")
+}],
+"loop": false,
+"name": &"thief_fox_attack",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v1tpk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r6ah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ct38v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bw4iv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bycar")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2f32u")
+}],
+"loop": false,
+"name": &"thief_fox_die",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rs313")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ikg3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8x5bd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq0eq")
+}],
+"loop": true,
+"name": &"thief_fox_walk",
 "speed": 5.0
 }, {
 "frames": [{
@@ -242,7 +358,7 @@ script = ExtResource("1_afpwt")
 position = Vector2(1, -3)
 scale = Vector2(3.25781, 3.25781)
 sprite_frames = SubResource("SpriteFrames_m2xou")
-animation = &"fox_die"
+animation = &"thief_fox_walk"
 autoplay = "fox_walk"
 flip_h = true
 

@@ -1,11 +1,6 @@
 extends Node2D
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
 func _on_operations_success():
 	var enemy = null
 	if $EnemySpawner.has_enemy():
@@ -28,6 +23,8 @@ func _on_samir_rig_attacked():
 func _on_samir_rig_dead():
 	$TileMap.paused = true
 	$ParallaxBackground.paused = true
+	$AfterDeath.start()
+	$Operations.disable()
 
 
 func _on_operations_failed():
@@ -35,3 +32,17 @@ func _on_operations_failed():
 	if $EnemySpawner.has_enemy():
 		enemy = $EnemySpawner.instance
 		enemy.speed += 200
+
+
+func _on_after_death_timeout():
+	get_tree().reload_current_scene()
+
+
+func _on_operations_ended():
+	print("gg")
+	var enemy = null
+	if $EnemySpawner.has_enemy():
+		enemy = $EnemySpawner.instance
+		enemy.queue_free()
+		
+	$SamirRig.run_away()
