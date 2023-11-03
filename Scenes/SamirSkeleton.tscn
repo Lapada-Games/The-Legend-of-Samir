@@ -1,0 +1,73 @@
+[gd_scene load_steps=5 format=3 uid="uid://5cuawqj5dcb8"]
+
+[ext_resource type="Texture2D" uid="uid://opjduxttip4x" path="res://Assets/The Hero/skeleton/leg.png" id="1_wdt63"]
+[ext_resource type="Texture2D" uid="uid://wvj46vi3vtqi" path="res://Assets/The Hero/skeleton/torso.png" id="2_6txku"]
+[ext_resource type="Texture2D" uid="uid://3jmbotgo8vky" path="res://Assets/The Hero/head/head_neutral.png" id="3_n0u3v"]
+[ext_resource type="Texture2D" uid="uid://lktoopa2yjk4" path="res://Assets/The Hero/arm.png" id="4_6dsdl"]
+
+[node name="SamirSkeleton" type="Skeleton2D"]
+
+[node name="LeftLeg" type="Sprite2D" parent="."]
+position = Vector2(-15.7037, 19.0148)
+rotation = -0.01047
+scale = Vector2(0.232416, 0.232416)
+texture = ExtResource("1_wdt63")
+
+[node name="RightLeg" type="Sprite2D" parent="."]
+position = Vector2(15.0486, 19.9972)
+rotation = -0.00805008
+scale = Vector2(0.232416, 0.232416)
+texture = ExtResource("1_wdt63")
+
+[node name="Torso" type="Bone2D" parent="."]
+scale = Vector2(0.999999, 0.999999)
+
+[node name="TorsoCenter" type="Node2D" parent="Torso"]
+position = Vector2(0.0372925, -26.2488)
+
+[node name="Torso" type="Sprite2D" parent="Torso/TorsoCenter"]
+position = Vector2(20.9627, 2.24879)
+scale = Vector2(0.232416, 0.232416)
+texture = ExtResource("2_6txku")
+offset = Vector2(0.248, 0)
+
+[node name="Head" type="Bone2D" parent="Torso"]
+position = Vector2(0.068922, -65.1045)
+
+[node name="Head" type="Sprite2D" parent="Torso/Head"]
+position = Vector2(5, -54)
+scale = Vector2(0.232416, 0.232416)
+texture = ExtResource("3_n0u3v")
+
+[node name="LeftArmJoint" type="Bone2D" parent="Torso"]
+position = Vector2(-15, -55)
+rotation = 2.49489
+
+[node name="Arm" type="Sprite2D" parent="Torso/LeftArmJoint"]
+z_index = -1
+position = Vector2(16.5576, 31.7938)
+rotation = -2.27697
+scale = Vector2(0.232416, 0.232416)
+texture = ExtResource("4_6dsdl")
+
+[node name="LegJoint1" type="Bone2D" parent="Torso"]
+position = Vector2(-15, 2)
+rotation = 1.5708
+scale = Vector2(0.999999, 0.999999)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Torso/LegJoint1"]
+position = Vector2(17.0148, 0.703705)
+rotation = -1.58127
+scale = Vector2(0.232416, 0.232416)
+remote_path = NodePath("../../../LeftLeg")
+
+[node name="LegJoint2" type="Bone2D" parent="Torso"]
+position = Vector2(14, 2)
+rotation = 1.5708
+scale = Vector2(0.999999, 0.999999)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Torso/LegJoint2"]
+position = Vector2(17.9972, -1.04871)
+rotation = -1.57885
+scale = Vector2(0.232416, 0.232416)
+remote_path = NodePath("../../../RightLeg")

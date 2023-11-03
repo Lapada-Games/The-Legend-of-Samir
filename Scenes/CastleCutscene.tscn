@@ -1,10 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://x15dk5uwubmt"]
+[gd_scene load_steps=12 format=3 uid="uid://x15dk5uwubmt"]
 
 [ext_resource type="Texture2D" uid="uid://bkhmell48sw6y" path="res://Assets/castle.png" id="1_qi6ur"]
+[ext_resource type="Texture2D" uid="uid://opjduxttip4x" path="res://Assets/The Hero/skeleton/leg.png" id="2_4ddex"]
+[ext_resource type="Texture2D" uid="uid://wvj46vi3vtqi" path="res://Assets/The Hero/skeleton/torso.png" id="3_rb2em"]
+[ext_resource type="Texture2D" uid="uid://3jmbotgo8vky" path="res://Assets/The Hero/head/head_neutral.png" id="4_aqouf"]
+[ext_resource type="Texture2D" uid="uid://dvvgyndpykvrb" path="res://Assets/The Hero/head/head_attack.png" id="4_jm4hd"]
+[ext_resource type="Texture2D" uid="uid://lktoopa2yjk4" path="res://Assets/The Hero/arm.png" id="5_b0epu"]
+[ext_resource type="AudioStream" uid="uid://cja5hbd8acnkc" path="res://Assets/Audio/The Castle Entrance.mp3" id="6_ewmas"]
+[ext_resource type="Texture2D" uid="uid://cg2swikhrxbjd" path="res://Assets/castlebg.png" id="6_wbq28"]
 
 [sub_resource type="Animation" id="Animation_mhth5"]
 resource_name = "cinematic"
-length = 20.0
+length = 30.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -28,6 +35,126 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(0.810547, 0.810547)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SamirSkeleton:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(15, 17, 20.7, 22, 24, 25, 28.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-120, 549), Vector2(152, 549), Vector2(152, 549), Vector2(349, 550), Vector2(397, 327), Vector2(912, 539), Vector2(3661, 539)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SamirSkeleton/Torso/TorsoCenter:rotation")
+tracks/3/interp = 2
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(15, 15.9, 16.4, 17),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.0822365, 0.000212766, -0.00710931]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SamirSkeleton/Torso/LeftArmJoint:rotation")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(15, 15.9, 16.5, 17, 17.6, 17.9, 18.2, 20.7, 21.3, 21.9, 22.5, 23, 23.3, 23.9, 24.2, 25.5, 26.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [2.49489, 2.304, 2.55933, 1.96149, 1.82774, 1.85857, 1.93091, 1.93091, 2.49489, 2.304, 2.55933, 1.96149, 2.54871, 1.9846, 2.80764, 2.80764, 3.74265]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SamirSkeleton/Torso/LegJoint1:rotation")
+tracks/5/interp = 2
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(15, 15.4, 15.9, 16.4, 16.8, 20.7, 21.3, 21.7, 22.2, 22.7, 23.1, 23.4, 23.8, 25.2, 25.5, 25.8, 26.1, 26.4, 26.7, 27, 27.3, 27.6, 27.9, 28.2, 28.5, 28.8, 29.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.5708, 2.43741, 0.410781, 2.35518, 1.59305, 1.59305, 0.872665, 2.43741, 0.410781, 2.35518, 1.59305, 0.528154, 2.43908, 2.43908, 0.729168, 2.66062, 0.281718, 2.65359, 0.729168, 2.66062, 0.281718, 2.65359, 0.729168, 2.66062, 0.281718, 2.65359, 1.56368]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SamirSkeleton/Torso/LegJoint2:rotation")
+tracks/6/interp = 2
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(15, 15.4, 15.9, 16.4, 16.8, 20.7, 21.3, 21.7, 22.2, 22.7, 23.1, 23.4, 23.8, 25.2, 25.5, 25.8, 26.1, 26.4, 26.7, 27, 27.3, 27.6, 27.9, 28.2, 28.5, 28.8, 29.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [1.5708, 0.729235, 2.52472, 0.723278, 1.48767, 1.48767, 2.61799, 0.729235, 2.52472, 0.723278, 1.48767, 2.72549, 0.896676, 0.896676, 2.46287, 0.375643, 2.64748, 0.43525, 2.46287, 0.375643, 2.64748, 0.43525, 2.46287, 0.375643, 2.64748, 0.43525, 1.59327]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SamirSkeleton/Torso/Head:rotation")
+tracks/7/interp = 2
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(17, 17.6, 18.7, 20.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.391557, 0.391557, 0.0548314]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SamirSkeleton:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(20.7, 24, 25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, -1), Vector2(0.608875, -0.608875), Vector2(1, -1)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ColorRect:color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(23.4, 23.9, 25, 25.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Camera2D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 24, 25, 25.7, 27.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(1131, 0), Vector2(1131, 0), Vector2(3536, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SamirSkeleton/Torso/Head/Head:texture")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 25.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("4_aqouf"), ExtResource("4_jm4hd")]
 }
 
 [sub_resource type="Animation" id="Animation_r6svp"]
@@ -56,6 +183,126 @@ tracks/1/keys = {
 "update": 0,
 "values": []
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("SamirSkeleton:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-120, 549)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("SamirSkeleton/Torso/TorsoCenter:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.0822365]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("SamirSkeleton/Torso/LeftArmJoint:rotation")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.304]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SamirSkeleton/Torso/LegJoint1:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [2.43741]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SamirSkeleton/Torso/LegJoint2:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.729235]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SamirSkeleton/Torso/Head:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("SamirSkeleton:scale")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.608875, -0.608875)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ColorRect:color")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("Camera2D:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SamirSkeleton/Torso/Head/Head:texture")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("4_jm4hd")]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_82r12"]
 _data = {
@@ -66,7 +313,8 @@ _data = {
 [node name="CastleCutscene" type="Node2D"]
 
 [node name="Castle" type="Sprite2D" parent="."]
-position = Vector2(403, 309.425)
+z_index = -1
+position = Vector2(403, 200)
 scale = Vector2(0.810547, 0.810547)
 texture = ExtResource("1_qi6ur")
 
@@ -76,6 +324,104 @@ offset_top = -1004.0
 offset_right = 514.0
 offset_bottom = -480.0
 color = Color(0, 0.00784314, 0.121569, 1)
+
+[node name="SamirSkeleton" type="Skeleton2D" parent="."]
+position = Vector2(-120, 549)
+rotation = 3.14159
+scale = Vector2(0.608875, -0.608875)
+
+[node name="LeftLeg" type="Sprite2D" parent="SamirSkeleton"]
+position = Vector2(-15.5825, 19.0193)
+rotation = -0.0175923
+scale = Vector2(0.232416, 0.232416)
+texture = ExtResource("2_4ddex")
+
+[node name="RightLeg" type="Sprite2D" parent="SamirSkeleton"]
+position = Vector2(14.644, 20.0162)
+rotation = 0.0144179
+scale = Vector2(0.232415, 0.232415)
+texture = ExtResource("2_4ddex")
+
+[node name="Torso" type="Bone2D" parent="SamirSkeleton"]
+scale = Vector2(0.999999, 0.999999)
+
+[node name="TorsoCenter" type="Node2D" parent="SamirSkeleton/Torso"]
+position = Vector2(0.0372925, -26.2488)
+rotation = -0.0822365
+
+[node name="Torso" type="Sprite2D" parent="SamirSkeleton/Torso/TorsoCenter"]
+position = Vector2(20.9627, 2.24879)
+scale = Vector2(0.232416, 0.232416)
+texture = ExtResource("3_rb2em")
+offset = Vector2(0.248, 0)
+
+[node name="Head" type="Bone2D" parent="SamirSkeleton/Torso"]
+position = Vector2(0.068922, -65.1045)
+
+[node name="Head" type="Sprite2D" parent="SamirSkeleton/Torso/Head"]
+position = Vector2(5, -54)
+scale = Vector2(0.232416, 0.232416)
+texture = ExtResource("4_jm4hd")
+
+[node name="LeftArmJoint" type="Bone2D" parent="SamirSkeleton/Torso"]
+position = Vector2(-15, -55)
+rotation = 2.304
+scale = Vector2(0.999999, 0.999999)
+
+[node name="Arm" type="Sprite2D" parent="SamirSkeleton/Torso/LeftArmJoint"]
+z_index = -1
+position = Vector2(16.5576, 31.7938)
+rotation = -2.27697
+scale = Vector2(0.232416, 0.232416)
+texture = ExtResource("5_b0epu")
+
+[node name="LegJoint1" type="Bone2D" parent="SamirSkeleton/Torso"]
+position = Vector2(-15, 2)
+rotation = 2.43741
+scale = Vector2(0.999999, 0.999999)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SamirSkeleton/Torso/LegJoint1"]
+position = Vector2(17.0148, 0.703705)
+rotation = -1.58127
+scale = Vector2(0.232416, 0.232416)
+remote_path = NodePath("../../../LeftLeg")
+
+[node name="LegJoint2" type="Bone2D" parent="SamirSkeleton/Torso"]
+position = Vector2(14, 2)
+rotation = 0.729235
+scale = Vector2(0.999999, 0.999999)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="SamirSkeleton/Torso/LegJoint2"]
+position = Vector2(17.9972, -1.04871)
+rotation = -1.57885
+scale = Vector2(0.232416, 0.232416)
+remote_path = NodePath("../../../RightLeg")
+
+[node name="Castlebg" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(1980, 195)
+scale = Vector2(3.57583, 3.57583)
+texture = ExtResource("6_wbq28")
+
+[node name="Castlebg2" type="Sprite2D" parent="."]
+z_index = -2
+position = Vector2(3782, 195)
+scale = Vector2(3.57583, 3.57583)
+texture = ExtResource("6_wbq28")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1424.0
+offset_top = -2647.0
+offset_right = 9841.0
+offset_bottom = 4075.0
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ewmas")
+autoplay = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "cinematic"
