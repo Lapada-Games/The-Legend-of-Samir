@@ -1,6 +1,7 @@
 extends Node2D
 
 signal success
+signal failed
 
 var rng = RandomNumberGenerator.new()
 
@@ -47,6 +48,7 @@ var positions = [
 
 var index = 0
 var current_question = 0
+var has_answered = false
 
 func _ready():
 	update_cursor()
@@ -55,22 +57,24 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("ui_left"):
-		index -= 1
-		if index < 0: index = 0 # clamping
-		update_cursor()
-	if Input.is_action_just_pressed("ui_right"):
-		index += 1
-		if index > 3: index = 3
-		update_cursor()
-	
-	if Input.is_action_just_pressed("ui_up"):
-		check()
+	if not has_answered:
+		if Input.is_action_just_pressed("ui_left"):
+			index -= 1
+			if index < 0: index = 0 # clamping
+			update_cursor()
+		if Input.is_action_just_pressed("ui_right"):
+			index += 1
+			if index > 3: index = 3
+			update_cursor()
+		
+		if Input.is_action_just_pressed("ui_up"):
+			check()
 
 func update_cursor():
 	$Selection.position = positions[index]
 
 func render_operation():
+	$Selection.visible = true
 	$Panel/Label.text = operations[Global.level][current_question] + " ="
 	
 	# set all options to be random numbers
@@ -79,7 +83,7 @@ func render_operation():
 		random_answers.append(rng.randi_range(1, 20))
 	
 	# check for repeated values
-	for i in range(3):
+	for i in range(4):
 		for j in range(1, 4):
 			print(i, j)
 			if i == j: continue
@@ -99,16 +103,33 @@ func check():
 	var option_text = get_node("Option" + str(index + 1) + "/Label").text
 	
 	if int(option_text) == answers[Global.level][current_question]:
-		print("acertou")
 		emit_signal("success")
-#		next_question()
+		has_answered = true
+		$Panel/Label.text = "CORRETO!!"
+		$Option1/Label.text = ""
+		$Option2/Label.text = ""
+		$Option3/Label.text = ""
+		$Option4/Label.text = ""
+		$DelayBeforeNext.start()
+		$Selection.visible = false
 	else:
-		print("errou")
+		has_answered = true
+		$Panel/Label.text = "ERRADO :("
+		$Option1/Label.text = ""
+		$Option2/Label.text = ""
+		$Option3/Label.text = ""
+		$Option4/Label.text = ""
+		emit_signal("failed")
 
 func next_question():
 	current_question += 1
+	if current_question >= len(operations[Global.level]): return # TODO: what happens next
 	render_operation()
 	
 
 func _on_test_timeout():
 	emit_signal("success") # TESTE
+
+
+func _on_delay_before_next_timeout():
+	has_answered = false

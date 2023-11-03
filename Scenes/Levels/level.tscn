@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://7babjxlg1ary"]
+[gd_scene load_steps=13 format=3 uid="uid://7babjxlg1ary"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Background.gd" id="1_fnnrr"]
 [ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="1_k8mi3"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://r8ic662go4fn" path="res://Scenes/SamirRig.tscn" id="3_ppgkd"]
 [ext_resource type="PackedScene" uid="uid://cvwg24cuova02" path="res://Scenes/Operations.tscn" id="7_j8pmd"]
 [ext_resource type="Script" path="res://Scenes/Levels/EnemySpawner.gd" id="9_ualg3"]
+[ext_resource type="AudioStream" uid="uid://b4fsdh448wy6f" path="res://Assets/Audio/Level1.mp3" id="10_j8xxe"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y2iie"]
 texture = ExtResource("1_ux70b")
@@ -157,15 +158,20 @@ script = ExtResource("1_xt1b8")
 
 [node name="Operations" parent="." instance=ExtResource("7_j8pmd")]
 
-[node name="EnemySpawner" type="Node2D" parent="."]
-position = Vector2(733, 468)
-script = ExtResource("9_ualg3")
-
 [node name="SamirRig" parent="." instance=ExtResource("3_ppgkd")]
 position = Vector2(96, 501)
 rotation = 3.14159
 scale = Vector2(0.5, -0.5)
 
+[node name="EnemySpawner" type="Node2D" parent="."]
+position = Vector2(852, 468)
+script = ExtResource("9_ualg3")
+
+[node name="Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_j8xxe")
+autoplay = true
+
+[connection signal="failed" from="Operations" to="." method="_on_operations_failed"]
 [connection signal="success" from="Operations" to="." method="_on_operations_success"]
 [connection signal="attacked" from="SamirRig" to="." method="_on_samir_rig_attacked"]
 [connection signal="dead" from="SamirRig" to="." method="_on_samir_rig_dead"]

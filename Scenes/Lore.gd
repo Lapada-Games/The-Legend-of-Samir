@@ -9,7 +9,7 @@ var texts = [
 	"Essa concha é um artefato poderoso capaz de manter a paz e harmonia no universo.",
 	"Porém, um terrível vilão, chamado Euler, aparece e rouba a Concha.",
 	"Mas existe uma lenda. De um herói destemido que irá deter o grande vilão e restaurar a paz no reino.",
-	"Você é Samir, um habitante do Reino dos Números. Seu objetivo é recuperar A Concha.",
+	"Seu nome é Samir, um habitante do Reino dos Números. Seu objetivo é recuperar A Concha.",
 	"Só que para isso, você precisa enfrentar O CASTELO DE EULER!"
 ]
 
@@ -46,9 +46,8 @@ func reload():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if Input.is_action_just_pressed("ui_right"):
-		current_text += 1
-		reload()
+	if Input.is_action_just_pressed("ui_up"):
+		get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
 
 
 func _on_timer_timeout():
@@ -58,6 +57,3 @@ func _on_timer_timeout():
 func end():
 	get_tree().change_scene_to_file("res://Scenes/Menu.tscn")
 
-#func _on_animation_player_animation_finished(anim_name):
-#	if anim_name == "up":
-#		$AnimationPlayer.play("")

@@ -32,9 +32,10 @@ autoplay = true
 [node name="ColorRect2" type="ColorRect" parent="."]
 layout_mode = 0
 offset_left = -58.0
-offset_top = -838.0
+offset_top = -885.0
 offset_right = 917.0
-offset_bottom = 137.0
+offset_bottom = 90.0
+color = Color(0, 0, 0, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="."]
 layout_mode = 0
@@ -42,5 +43,6 @@ offset_left = -68.0
 offset_top = 498.0
 offset_right = 907.0
 offset_bottom = 1473.0
+color = Color(0, 0, 0, 1)
 
 [connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]

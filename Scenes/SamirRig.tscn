@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://r8ic662go4fn"]
+[gd_scene load_steps=20 format=3 uid="uid://r8ic662go4fn"]
 
 [ext_resource type="Texture2D" uid="uid://opjduxttip4x" path="res://Assets/The Hero/skeleton/leg.png" id="1_lukw0"]
 [ext_resource type="Script" path="res://Scenes/Player.gd" id="1_sn30m"]
@@ -7,6 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://3jmbotgo8vky" path="res://Assets/The Hero/head/head_neutral.png" id="3_cfx5k"]
 [ext_resource type="Texture2D" uid="uid://dvvgyndpykvrb" path="res://Assets/The Hero/head/head_attack.png" id="5_iwr1t"]
 [ext_resource type="Texture2D" uid="uid://cjh08ydvbt0c0" path="res://Assets/The Hero/head/head_dead.png" id="7_fwlj3"]
+[ext_resource type="AudioStream" uid="uid://btsxi1vsgtq0s" path="res://Assets/Audio/Yahs/1.wav" id="8_hncvj"]
+[ext_resource type="AudioStream" uid="uid://c1p8vw1cnooou" path="res://Assets/Audio/Yahs/2.wav" id="9_log13"]
+[ext_resource type="AudioStream" uid="uid://5vd1uer0p21o" path="res://Assets/Audio/Yahs/3.wav" id="10_d4s3k"]
+[ext_resource type="AudioStream" uid="uid://bqyv56yfy84a6" path="res://Assets/Audio/hurt.wav" id="11_um6cd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_grjlo"]
 radius = 57.0
@@ -638,9 +642,12 @@ tracks/10/path = NodePath(".")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
-"times": PackedFloat32Array(0.8),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.5, 0.8),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"yah"
+}, {
 "args": [&"attacked"],
 "method": &"emit_signal"
 }]
@@ -738,14 +745,14 @@ script = ExtResource("1_sn30m")
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 
 [node name="LeftLeg" type="Sprite2D" parent="Skeleton2D"]
-position = Vector2(10.1028, -9.5181)
-rotation = 1.21096
+position = Vector2(-30.2033, 9.67174)
+rotation = 1.05166
 scale = Vector2(0.232416, 0.232416)
 texture = ExtResource("1_lukw0")
 
 [node name="RightLeg" type="Sprite2D" parent="Skeleton2D"]
-position = Vector2(11.8164, 17.1961)
-rotation = 1.45038
+position = Vector2(26.9953, 14.4948)
+rotation = -0.754878
 scale = Vector2(0.232416, 0.232416)
 texture = ExtResource("1_lukw0")
 
@@ -809,12 +816,26 @@ shape = SubResource("CapsuleShape2D_grjlo")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(0, -62)
-target_position = Vector2(-202, 0)
+target_position = Vector2(-358, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "run"
 libraries = {
 "": SubResource("AnimationLibrary_stfnc")
 }
+
+[node name="Audios" type="Node" parent="."]
+
+[node name="Yah" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("8_hncvj")
+
+[node name="Yah2" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("9_log13")
+
+[node name="Yah3" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("10_d4s3k")
+
+[node name="Hurt" type="AudioStreamPlayer" parent="Audios"]
+stream = ExtResource("11_um6cd")
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

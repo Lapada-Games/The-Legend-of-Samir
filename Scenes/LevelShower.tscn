@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpoyjiak03wiv"]
+
+[ext_resource type="FontFile" uid="uid://b4eycjheda6jr" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="1_0oik6"]
+[ext_resource type="AudioStream" uid="uid://bbr576tjskv8a" path="res://Assets/Audio/Level.mp3" id="1_e1xmy"]
+[ext_resource type="Script" path="res://Scenes/LevelShower.gd" id="1_j2mes"]
+
+[node name="LevelShower" type="Node2D"]
+script = ExtResource("1_j2mes")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 865.0
+offset_bottom = 746.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 29.0
+offset_top = 45.0
+offset_right = 764.0
+offset_bottom = 570.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_0oik6")
+theme_override_font_sizes/font_size = 32
+text = "PRAIA DOS NÚMEROS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_e1xmy")
+autoplay = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

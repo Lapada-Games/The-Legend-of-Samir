@@ -13,9 +13,10 @@ func _ready():
 func spawn_enemy():
 	instance = enemy.instantiate()
 	add_child(instance)
+	instance.randomize_sprite()
 
 func has_enemy():
 	return instance != null
 
-func delete_enemy():
-	instance.queue_free()
+func kill_enemy():
+	instance.die()

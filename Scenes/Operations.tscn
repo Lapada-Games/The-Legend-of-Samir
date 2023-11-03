@@ -265,4 +265,9 @@ autoplay = "default"
 wait_time = 1.731
 one_shot = true
 
+[node name="DelayBeforeNext" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
 [connection signal="timeout" from="TEST" to="." method="_on_test_timeout"]
+[connection signal="timeout" from="DelayBeforeNext" to="." method="_on_delay_before_next_timeout"]
