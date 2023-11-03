@@ -1,0 +1,84 @@
+[gd_scene load_steps=5 format=3 uid="uid://x15dk5uwubmt"]
+
+[ext_resource type="Texture2D" uid="uid://bkhmell48sw6y" path="res://Assets/castle.png" id="1_qi6ur"]
+
+[sub_resource type="Animation" id="Animation_mhth5"]
+resource_name = "cinematic"
+length = 20.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Castle:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 15),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(403, 797), Vector2(403, 200)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Castle:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.810547, 0.810547)]
+}
+
+[sub_resource type="Animation" id="Animation_r6svp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Castle:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Castle:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_82r12"]
+_data = {
+"RESET": SubResource("Animation_r6svp"),
+"cinematic": SubResource("Animation_mhth5")
+}
+
+[node name="CastleCutscene" type="Node2D"]
+
+[node name="Castle" type="Sprite2D" parent="."]
+position = Vector2(403, 309.425)
+scale = Vector2(0.810547, 0.810547)
+texture = ExtResource("1_qi6ur")
+
+[node name="ColorRect" type="ColorRect" parent="Castle"]
+offset_left = -512.0
+offset_top = -1004.0
+offset_right = 514.0
+offset_bottom = -480.0
+color = Color(0, 0.00784314, 0.121569, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "cinematic"
+libraries = {
+"": SubResource("AnimationLibrary_82r12")
+}

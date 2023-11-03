@@ -4,7 +4,7 @@ var level_names = [
 	"PRAIA DA ADIÇÃO",
 	"PLANÍCIE DA SUBTRAÇÃO",
 	"VALES DA MULTIPLICAÇÃO",
-	"CASTELO DO EULER"
+	"ESTRADA DA DIVISÃO"
 ]
 
 # Called when the node enters the scene tree for the first time.

@@ -10,7 +10,9 @@ var dead = false
 var sprites = [
 	"fox",
 	"toad",
-	"thief_fox"
+	"thief_fox",
+	"wolf",
+	"bat"
 ]
 
 var current_sprite = 0
@@ -20,6 +22,8 @@ func randomize_sprite():
 		current_sprite = rng.randi_range(0, 1)
 	elif Global.level == 2:
 		current_sprite = rng.randi_range(1, 2)
+	elif Global.level == 3:
+		current_sprite = rng.randi_range(2, 4)
 
 func _physics_process(delta):
 	velocity.x = -1 * speed

@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cvwg24cuova02" path="res://Scenes/Operations.tscn" id="8_1j88u"]
 [ext_resource type="PackedScene" uid="uid://r8ic662go4fn" path="res://Scenes/SamirRig.tscn" id="9_o7rrb"]
 [ext_resource type="Script" path="res://Scenes/Levels/EnemySpawner.gd" id="10_o3o8r"]
-[ext_resource type="AudioStream" uid="uid://b4fsdh448wy6f" path="res://Assets/Audio/Level1.mp3" id="11_ayil7"]
+[ext_resource type="AudioStream" uid="uid://bydkv21mod7ag" path="res://Assets/Audio/Level4.mp3" id="12_mxkf7"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y2iie"]
 texture = ExtResource("6_cf80p")
@@ -183,12 +183,14 @@ position = Vector2(852, 468)
 script = ExtResource("10_o3o8r")
 
 [node name="Theme" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_ayil7")
+stream = ExtResource("12_mxkf7")
+autoplay = true
 
 [node name="AfterDeath" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
 
+[connection signal="ended" from="Operations" to="." method="_on_operations_ended"]
 [connection signal="failed" from="Operations" to="." method="_on_operations_failed"]
 [connection signal="success" from="Operations" to="." method="_on_operations_success"]
 [connection signal="attacked" from="SamirRig" to="." method="_on_samir_rig_attacked"]

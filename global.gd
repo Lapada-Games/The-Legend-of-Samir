@@ -1,4 +1,4 @@
 extends Node
 
 
-var level = 0
+var level = 3
