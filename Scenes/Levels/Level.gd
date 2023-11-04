@@ -6,7 +6,7 @@ func _on_operations_success():
 	if $EnemySpawner.has_enemy():
 		enemy = $EnemySpawner.instance
 		enemy.should_kill_player = false
-		enemy.speed += 120
+		enemy.speed = 200
 		
 
 
@@ -31,7 +31,7 @@ func _on_operations_failed():
 	var enemy = null
 	if $EnemySpawner.has_enemy():
 		enemy = $EnemySpawner.instance
-		enemy.speed += 200
+		enemy.speed = 200
 
 
 func _on_after_death_timeout():

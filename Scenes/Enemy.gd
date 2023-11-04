@@ -17,6 +17,12 @@ var sprites = [
 
 var current_sprite = 0
 
+func _ready():
+	if Global.difficulty == Global.MEDIUM:
+		speed = 90
+	elif Global.difficulty == Global.HARD:
+		speed = 110
+
 func randomize_sprite():
 	if Global.level == 0 or Global.level == 1:
 		current_sprite = rng.randi_range(0, 1)

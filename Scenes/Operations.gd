@@ -68,11 +68,122 @@ var index = 0
 var current_question = 0
 var has_answered = false
 
-func _ready():
-	update_cursor()
-	
-	render_operation()
+enum {
+	SUM,
+	SUB,
+	MUL,
+	DIV
+}
 
+
+func _ready():
+	var size = 5
+	
+	if Global.difficulty == Global.MEDIUM: size = 8
+	elif Global.difficulty == Global.HARD: size = 12
+	operations = generate_operations_array(size)
+	answers = generate_answers(operations)
+	update_cursor()
+	render_operation()
+	
+#	var operacao = operation_string_generator(DIV)
+#	print(operacao)
+#	print(get_answer_from_string(operacao))
+	
+
+func operation_string_generator(operation):
+	var final_str = ""
+	var range = [1, 10]
+	
+	if operation == SUM:
+		if Global.difficulty == Global.MEDIUM:
+			range = [1, 20]
+		elif Global.difficulty == Global.HARD:
+			range = [20, 50]
+		
+		var n1 = rng.randi_range(range[0], range[1])
+		var n2 = rng.randi_range(range[0], range[1])
+		
+		final_str = str(n1) + " + " + str(n2)
+		
+		return final_str
+		
+	elif operation == SUB:
+		if Global.difficulty == Global.MEDIUM:
+			range = [1, 20]
+		elif Global.difficulty == Global.HARD:
+			range = [20, 50]
+		
+		var n1 = rng.randi_range(range[0], range[1])
+		var n2 = rng.randi_range(range[0], range[1])
+		
+		# this forces that every subtraction will result a positive integer
+		if n1 > n2:
+			final_str = str(n1) + " - " + str(n2)
+		else:
+			final_str = str(n2) + " - " + str(n1)
+		
+		return final_str
+		
+	elif operation == MUL:
+		if Global.difficulty == Global.MEDIUM or Global.difficulty == Global.HARD:
+			range = [2, 10]
+		
+		var n1 = rng.randi_range(range[0], range[1])
+		var n2 = rng.randi_range(range[0], range[1])
+		
+		final_str = str(n1) + " x " + str(n2)
+		
+		return final_str
+		
+	elif operation == DIV:
+		if Global.difficulty == Global.MEDIUM or Global.difficulty == Global.HARD:
+			range = [2, 9]
+		
+		var n1 = rng.randi_range(range[0], range[1])
+		var n2 = rng.randi_range(range[0], range[1])
+		
+		n1 *= n2
+		
+		final_str = str(n1) + " ÷ " + str(n2)
+		
+		return final_str
+
+func get_answer_from_string(string: String):
+	
+	var n1 = int(string.split(" ")[0])
+	var n2 = int(string.split(" ")[2])
+	var sign = string.split(" ")[1]
+	
+	if sign == "+":
+		return int(n1) + int(n2)
+	elif sign == "-":
+		return int(n1) - int(n2)
+	elif sign == "x":
+		return int(n1) * int(n2)
+	elif sign == "÷":
+		return n1 / n2
+
+func generate_operations_array(size):
+	var operations = []
+	
+	for i in range(4):
+		operations.append([])
+		for j in range(size):
+			var operation = operation_string_generator(i)
+			operations[i].append(operation)
+	return operations
+
+func generate_answers(operations_array):
+	var answers = []
+	
+	for i in range(4):
+		answers.append([])
+		for j in range(len(operations_array[0])):
+			answers[i].append(get_answer_from_string(operations_array[i][j]))
+	
+	return answers
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if not has_answered:
@@ -85,7 +196,7 @@ func _process(delta):
 			if index > 3: index = 3
 			update_cursor()
 		
-		if Input.is_action_just_pressed("ui_up"):
+		if Input.is_action_just_pressed("ui_accept"):
 			check()
 
 func update_cursor():
@@ -97,11 +208,22 @@ func render_operation():
 	
 	# set all options to be random numbers
 	var random_answers = []
+	
+	var range = [1, 20]
+	
+	if Global.level != 3:
+		if Global.difficulty == Global.MEDIUM:
+			range = [1, 50]
+		elif Global.difficulty == Global.HARD:
+			range = [1, 99]
+	else:
+		range = [1, 9]
+	
 	for i in range(4):
-		var random_answer = rng.randi_range(1, (Global.level + 1) * 20)
+		var random_answer = rng.randi_range(range[0], range[1])
 		
 		while random_answer in random_answers or random_answer == answers[Global.level][current_question]:
-			random_answer = rng.randi_range(1, (Global.level + 1) * 20)
+			random_answer = rng.randi_range(range[0], range[1])
 		
 		random_answers.append(random_answer)
 	
