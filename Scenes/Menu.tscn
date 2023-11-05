@@ -1,18 +1,132 @@
-[gd_scene load_steps=9 format=3 uid="uid://du5en3u8cseu7"]
+[gd_scene load_steps=16 format=3 uid="uid://du5en3u8cseu7"]
 
 [ext_resource type="Script" path="res://Scenes/Menu.gd" id="1_0qoqw"]
 [ext_resource type="Texture2D" uid="uid://bsmnfrha1sldq" path="res://Assets/menubg.png" id="1_ucd37"]
+[ext_resource type="Texture2D" uid="uid://b537v83ugiomu" path="res://Assets/backgrounds/summer2/1.png" id="2_cgonc"]
 [ext_resource type="Texture2D" uid="uid://b8uqn4mwqes1r" path="res://Assets/logo.png" id="2_wyeo0"]
 [ext_resource type="PackedScene" uid="uid://b4nxyqif7d8nd" path="res://Assets/spritesheets/red_button.tscn" id="3_76iuk"]
+[ext_resource type="Texture2D" uid="uid://c3d57w30eth0t" path="res://Assets/backgrounds/summer2/2.png" id="3_pw4jp"]
+[ext_resource type="Texture2D" uid="uid://cd8mk2ch3d2dp" path="res://Assets/The Hero/horse.png" id="4_ak7ok"]
+[ext_resource type="Texture2D" uid="uid://dj2gduefuq55p" path="res://Assets/backgrounds/summer2/3.png" id="4_cf6dg"]
 [ext_resource type="FontFile" uid="uid://b4eycjheda6jr" path="res://Assets/Fonts/PressStart2P-Regular.ttf" id="4_yqhxr"]
-[ext_resource type="Texture2D" uid="uid://d0vuvqganmqbo" path="res://Assets/lapadagames.png" id="5_sml6w"]
+[ext_resource type="Texture2D" uid="uid://cxy60k2xj886p" path="res://Assets/backgrounds/summer2/4.png" id="5_0e1bk"]
 [ext_resource type="AudioStream" uid="uid://drgtw8t63mjo2" path="res://Assets/Audio/Menu Theme.mp3" id="6_lhwcu"]
-[ext_resource type="Texture2D" uid="uid://b0i62imijo73q" path="res://Assets/The Hero/_2ac2b23c-2ab3-4916-9986-f16fde07d480.jpeg" id="8_712x2"]
+[ext_resource type="Texture2D" uid="uid://lssja2odcrqj" path="res://Assets/lapadasemfundo.png" id="10_ffcl2"]
+
+[sub_resource type="Animation" id="Animation_sqskf"]
+resource_name = "horse"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ParallaxBackground/Horse:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.0872665, 0.10472]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ParallaxBackground/Horse:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(590, 488), Vector2(590, 481)]
+}
+
+[sub_resource type="Animation" id="Animation_5lpoy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ParallaxBackground/Horse:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ParallaxBackground/Horse:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(590, 488)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tpww4"]
+_data = {
+"RESET": SubResource("Animation_5lpoy"),
+"horse": SubResource("Animation_sqskf")
+}
 
 [node name="Menu" type="Node2D"]
 script = ExtResource("1_0qoqw")
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 1)
+motion_offset = Vector2(117, 0)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(2, 2)
+texture = ExtResource("2_cgonc")
+centered = false
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.4, 1)
+motion_offset = Vector2(117, 0)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+scale = Vector2(2, 2)
+texture = ExtResource("3_pw4jp")
+centered = false
+
+[node name="Horse" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(590, 488)
+scale = Vector2(0.0976562, 0.0976562)
+texture = ExtResource("4_ak7ok")
+flip_h = true
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.6, 1)
+motion_offset = Vector2(117, 0)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+scale = Vector2(2, 2)
+texture = ExtResource("4_cf6dg")
+centered = false
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.7, 0.7)
+motion_offset = Vector2(117, 0)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="bg" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer4"]
+scale = Vector2(2, 2)
+texture = ExtResource("5_0e1bk")
+centered = false
+
 [node name="BG" type="Sprite2D" parent="."]
+visible = false
 texture_filter = 2
 position = Vector2(0, -101)
 scale = Vector2(0.783203, 0.783203)
@@ -21,18 +135,18 @@ centered = false
 
 [node name="Logo" type="Sprite2D" parent="."]
 texture_filter = 2
-position = Vector2(205.773, 84.875)
+position = Vector2(402, 249)
 scale = Vector2(0.863773, 0.863772)
 texture = ExtResource("2_wyeo0")
 
 [node name="RedButton" parent="." instance=ExtResource("3_76iuk")]
-position = Vector2(494, 392)
+position = Vector2(297, 392)
 scale = Vector2(3, 3)
 
 [node name="Label" type="Label" parent="."]
-offset_left = 542.0
+offset_left = 345.0
 offset_top = 379.0
-offset_right = 702.0
+offset_right = 505.0
 offset_bottom = 414.0
 theme_override_colors/font_color = Color(0.0901961, 0.211765, 0.290196, 1)
 theme_override_fonts/font = ExtResource("4_yqhxr")
@@ -40,16 +154,17 @@ theme_override_font_sizes/font_size = 32
 text = "START"
 
 [node name="Lapadagames" type="Sprite2D" parent="."]
-position = Vector2(95.5385, 544.125)
-scale = Vector2(0.113426, 0.113426)
-texture = ExtResource("5_sml6w")
+texture_filter = 2
+position = Vector2(129.817, 523.591)
+scale = Vector2(0.160904, 0.160904)
+texture = ExtResource("10_ffcl2")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_lhwcu")
 autoplay = true
 
-[node name="2Ac2b23c-2Ab3-4916-9986-f16Fde07d480" type="Sprite2D" parent="."]
-visible = false
-position = Vector2(449, 71)
-scale = Vector2(0.105469, 0.105469)
-texture = ExtResource("8_712x2")
+[node name="Horse" type="AnimationPlayer" parent="."]
+autoplay = "horse"
+libraries = {
+"": SubResource("AnimationLibrary_tpww4")
+}
