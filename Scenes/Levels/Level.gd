@@ -1,6 +1,9 @@
 extends Node2D
 
 
+func _ready():
+	MusicManager.play(Global.level)
+
 func _on_operations_success():
 	var enemy = null
 	if $EnemySpawner.has_enemy():
@@ -46,3 +49,5 @@ func _on_operations_ended():
 		enemy.queue_free()
 		
 	$SamirRig.run_away()
+
+

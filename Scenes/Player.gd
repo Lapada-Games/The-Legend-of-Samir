@@ -21,6 +21,7 @@ func _physics_process(delta):
 		
 		if position.x > 800:
 			Global.level += 1
+			MusicManager.stop()
 			get_tree().change_scene_to_file("res://Scenes/LevelShower.tscn")
 		
 		

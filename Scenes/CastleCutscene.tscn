@@ -392,7 +392,7 @@ remote_path = NodePath("../../../LeftLeg")
 [node name="LegJoint2" type="Bone2D" parent="SamirSkeleton/Torso"]
 position = Vector2(14, 2)
 rotation = 0.729235
-scale = Vector2(0.999998, 0.999998)
+scale = Vector2(0.999997, 0.999997)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="SamirSkeleton/Torso/LegJoint2"]
 position = Vector2(17.9972, -1.04871)

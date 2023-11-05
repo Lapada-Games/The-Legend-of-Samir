@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://7babjxlg1ary"]
+[gd_scene load_steps=12 format=3 uid="uid://7babjxlg1ary"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="1_kqqlu"]
 [ext_resource type="Script" path="res://Scenes/Levels/Background.gd" id="2_ncv47"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://cvwg24cuova02" path="res://Scenes/Operations.tscn" id="7_wajwe"]
 [ext_resource type="PackedScene" uid="uid://r8ic662go4fn" path="res://Scenes/SamirRig.tscn" id="8_iuqsr"]
 [ext_resource type="Script" path="res://Scenes/Levels/EnemySpawner.gd" id="9_4akkh"]
-[ext_resource type="AudioStream" uid="uid://b4fsdh448wy6f" path="res://Assets/Audio/Level1.mp3" id="10_vgpu0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y2iie"]
 texture = ExtResource("5_b87m1")
@@ -167,10 +166,6 @@ scale = Vector2(0.5, -0.5)
 position = Vector2(852, 468)
 script = ExtResource("9_4akkh")
 
-[node name="Theme" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_vgpu0")
-autoplay = true
-
 [node name="AfterDeath" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
@@ -180,4 +175,5 @@ one_shot = true
 [connection signal="success" from="Operations" to="." method="_on_operations_success"]
 [connection signal="attacked" from="SamirRig" to="." method="_on_samir_rig_attacked"]
 [connection signal="dead" from="SamirRig" to="." method="_on_samir_rig_dead"]
+[connection signal="tree_entered" from="SamirRig" to="." method="_on_samir_rig_tree_entered"]
 [connection signal="timeout" from="AfterDeath" to="." method="_on_after_death_timeout"]

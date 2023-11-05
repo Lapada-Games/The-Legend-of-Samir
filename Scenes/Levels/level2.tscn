@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://mlw5p7fh0r70"]
+[gd_scene load_steps=13 format=3 uid="uid://mlw5p7fh0r70"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/Level.gd" id="1_jdj1q"]
 [ext_resource type="Script" path="res://Scenes/Levels/Background.gd" id="2_h2345"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://cvwg24cuova02" path="res://Scenes/Operations.tscn" id="7_p32pn"]
 [ext_resource type="PackedScene" uid="uid://r8ic662go4fn" path="res://Scenes/SamirRig.tscn" id="8_umc2b"]
 [ext_resource type="Script" path="res://Scenes/Levels/EnemySpawner.gd" id="9_syevj"]
-[ext_resource type="AudioStream" uid="uid://b6p76qe5a0kw5" path="res://Assets/Audio/Level2.mp3" id="11_entgn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y2iie"]
 texture = ExtResource("5_347w2")
@@ -171,10 +170,6 @@ scale = Vector2(0.5, -0.5)
 [node name="EnemySpawner" type="Node2D" parent="."]
 position = Vector2(852, 468)
 script = ExtResource("9_syevj")
-
-[node name="Theme" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_entgn")
-autoplay = true
 
 [node name="AfterDeath" type="Timer" parent="."]
 wait_time = 3.0
