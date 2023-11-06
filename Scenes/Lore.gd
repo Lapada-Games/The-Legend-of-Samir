@@ -18,7 +18,7 @@ var extensions = [
 	".jpg",
 	".jpg",
 	".jpg",
-	".png",
+	".jpg",
 	".jpg",
 	".jpg",
 	".jpeg",

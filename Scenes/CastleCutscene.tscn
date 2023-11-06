@@ -333,14 +333,14 @@ rotation = 3.14159
 scale = Vector2(0.608875, -0.608875)
 
 [node name="LeftLeg" type="Sprite2D" parent="SamirSkeleton"]
-position = Vector2(-15.5828, 19.0193)
-rotation = -0.0175899
+position = Vector2(-28.4232, 12.4791)
+rotation = 0.85614
 scale = Vector2(0.232416, 0.232416)
 texture = ExtResource("2_4ddex")
 
 [node name="RightLeg" type="Sprite2D" parent="SamirSkeleton"]
-position = Vector2(14.644, 20.0162)
-rotation = 0.0144199
+position = Vector2(28.1189, 13.2095)
+rotation = -0.849615
 scale = Vector2(0.232415, 0.232415)
 texture = ExtResource("2_4ddex")
 

@@ -745,14 +745,14 @@ script = ExtResource("1_sn30m")
 [node name="Skeleton2D" type="Skeleton2D" parent="."]
 
 [node name="LeftLeg" type="Sprite2D" parent="Skeleton2D"]
-position = Vector2(-15.7037, 19.0148)
-rotation = -0.01047
+position = Vector2(-30.2033, 9.06703)
+rotation = 1.05166
 scale = Vector2(0.232416, 0.232416)
 texture = ExtResource("1_lukw0")
 
 [node name="RightLeg" type="Sprite2D" parent="Skeleton2D"]
-position = Vector2(15.0486, 19.9972)
-rotation = -0.00805008
+position = Vector2(26.9953, 13.8901)
+rotation = -0.754878
 scale = Vector2(0.232416, 0.232416)
 texture = ExtResource("1_lukw0")
 
