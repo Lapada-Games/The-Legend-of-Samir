@@ -13,6 +13,33 @@
 [ext_resource type="AudioStream" uid="uid://drgtw8t63mjo2" path="res://Assets/Audio/Menu Theme.mp3" id="6_lhwcu"]
 [ext_resource type="Texture2D" uid="uid://lssja2odcrqj" path="res://Assets/lapadasemfundo.png" id="10_ffcl2"]
 
+[sub_resource type="Animation" id="Animation_5lpoy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ParallaxBackground/Horse:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ParallaxBackground/Horse:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(590, 488)]
+}
+
 [sub_resource type="Animation" id="Animation_sqskf"]
 resource_name = "horse"
 loop_mode = 1
@@ -39,33 +66,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(590, 488), Vector2(590, 481)]
-}
-
-[sub_resource type="Animation" id="Animation_5lpoy"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("ParallaxBackground/Horse:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("ParallaxBackground/Horse:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(590, 488)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tpww4"]
