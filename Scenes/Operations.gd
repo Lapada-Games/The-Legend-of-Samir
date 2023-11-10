@@ -127,7 +127,7 @@ func operation_string_generator(operation):
 		
 	elif operation == MUL:
 		if Global.difficulty == Global.MEDIUM or Global.difficulty == Global.HARD:
-			range = [2, 10]
+			range = [2, 9]
 		
 		var n1 = rng.randi_range(range[0], range[1])
 		var n2 = rng.randi_range(range[0], range[1])
@@ -245,7 +245,7 @@ func check():
 		$Option2/Label.text = ""
 		$Option3/Label.text = ""
 		$Option4/Label.text = ""
-		$DelayBeforeNext.start()
+#		$DelayBeforeNext.start()
 		$Selection.visible = false
 	else:
 		has_answered = true
@@ -266,7 +266,9 @@ func disable():
 
 func next_question():
 	current_question += 1
+	has_answered = false
 	if current_question >= len(operations[Global.level]):
+		has_answered = true
 		emit_signal("ended")
 		$Panel/Label.text = "GANHOU!"
 		$Option1/Label.visible = false

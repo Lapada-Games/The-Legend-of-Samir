@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://x15dk5uwubmt"]
+[gd_scene load_steps=18 format=3 uid="uid://x15dk5uwubmt"]
 
 [ext_resource type="Texture2D" uid="uid://bkhmell48sw6y" path="res://Assets/castle.png" id="1_qi6ur"]
 [ext_resource type="Texture2D" uid="uid://opjduxttip4x" path="res://Assets/The Hero/skeleton/leg.png" id="2_4ddex"]
@@ -10,6 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://cg2swikhrxbjd" path="res://Assets/castlebg.png" id="6_wbq28"]
 [ext_resource type="Texture2D" uid="uid://csu3efhjb04uj" path="res://Assets/the villain/euler.png" id="9_7o38n"]
 [ext_resource type="Texture2D" uid="uid://daf71panknddj" path="res://Assets/The Hero/head/head_angry.png" id="9_oysgh"]
+[ext_resource type="Texture2D" uid="uid://yrfq2i4sglqm" path="res://Assets/the villain/euler_grr.png" id="11_30gnt"]
+[ext_resource type="Texture2D" uid="uid://cltm31p13rnhw" path="res://Assets/the villain/euler_smile.png" id="11_td4b8"]
+[ext_resource type="Texture2D" uid="uid://b5bpil148r5hs" path="res://Assets/kisspng-speech-balloon-comics-comic-book-clip-art-speech-bubble-logos-5aaa1c27f19682.9402873615210977679896.png" id="11_x8edg"]
+[ext_resource type="AudioStream" uid="uid://ds5bwxggdfr5i" path="res://Assets/Audio/gasp.wav" id="14_4yuuo"]
 
 [sub_resource type="Animation" id="Animation_r6svp"]
 length = 0.001
@@ -157,10 +161,59 @@ tracks/11/keys = {
 "update": 1,
 "values": [ExtResource("4_jm4hd")]
 }
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Balloon:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Euler:texture")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("9_7o38n")]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Balloon/RichTextLabel:visible_ratio")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Balloon/RichTextLabel:text")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Então você é o herói que todos falam que irá me deter? Haha, desse tamanho não derrota nem uma formiga!
+"]
+}
 
 [sub_resource type="Animation" id="Animation_mhth5"]
 resource_name = "cinematic"
-length = 40.0
+length = 53.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -213,13 +266,13 @@ tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
 tracks/4/path = NodePath("SamirSkeleton/Torso/LeftArmJoint:rotation")
-tracks/4/interp = 2
+tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(15, 15.9, 16.5, 17, 17.6, 17.9, 18.2, 20.7, 21.3, 21.9, 22.5, 23, 23.3, 23.9, 24.2, 25.5, 26.4, 29.3, 29.6, 30),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(15, 15.9, 16.5, 17, 17.6, 17.9, 18.2, 20.7, 21.3, 21.9, 22.5, 23, 23.3, 23.9, 24.2, 25.5, 26.4, 29.3, 29.6, 30, 46, 47),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, -3, -3),
 "update": 0,
-"values": [2.49489, 2.304, 2.55933, 1.96149, 1.82774, 1.85857, 1.93091, 1.93091, 2.49489, 2.304, 2.55933, 1.96149, 2.54871, 1.9846, 2.80764, 2.80764, 3.74265, 3.74265, 3.74265, 2.05941]
+"values": [2.49489, 2.304, 2.55933, 1.96149, 1.82774, 1.85857, 1.93091, 1.93091, 2.49489, 2.304, 2.55933, 1.96149, 2.54871, 1.9846, 2.80764, 2.80764, 3.74265, 3.74265, 3.74265, 2.05941, 2.05941, 2.74724]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -252,10 +305,10 @@ tracks/7/path = NodePath("SamirSkeleton/Torso/Head:rotation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(17, 17.6, 18.7, 20.7, 29.3, 29.7, 30.2),
-"transitions": PackedFloat32Array(-3, 1, 1, 1, 1, -2.14355, 1),
+"times": PackedFloat32Array(17, 17.6, 18.7, 20.7, 29.3, 29.7, 30.2, 46, 47),
+"transitions": PackedFloat32Array(-3, 1, 1, 1, 1, -2.14355, 1, -3, -3),
 "update": 0,
-"values": [0.0, 0.391557, 0.391557, 0.0548314, 0.0548314, 0.0548314, 0.211696]
+"values": [0.0, 0.391557, 0.391557, 0.0548314, 0.0548314, 0.0548314, 0.211696, 0.211696, 0.0664171]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
@@ -276,10 +329,10 @@ tracks/9/path = NodePath("ColorRect:color")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
-"times": PackedFloat32Array(23.4, 23.9, 25, 25.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
+"times": PackedFloat32Array(23.4, 23.9, 25, 25.5, 49.1, 52.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 tracks/10/type = "value"
 tracks/10/imported = false
@@ -304,6 +357,81 @@ tracks/11/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
 "values": [ExtResource("4_aqouf"), ExtResource("9_oysgh"), ExtResource("9_oysgh")]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("Balloon:visible")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 30.5, 45.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("Euler:texture")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 30.5, 38.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("9_7o38n"), ExtResource("11_td4b8"), ExtResource("11_30gnt")]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("Balloon/RichTextLabel:visible_ratio")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(30.5, 35.5, 38.5, 38.6, 43.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 1.0, 1.0, 0.0322576, 1.0]
+}
+tracks/15/type = "value"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("Balloon/RichTextLabel:text")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"times": PackedFloat32Array(0, 38.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": ["Então você é o herói que todos falam que irá me deter? Haha, desse tamanho não derrota nem uma formiga!
+", "Você não vai conseguir a Concha assim tão fácil, garoto! Terá que me enfrentar primeiro!"]
+}
+tracks/16/type = "value"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("Balloon/RichTextLabel:visible")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(0, 38.5, 38.6, 45.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, false, true, false]
+}
+tracks/17/type = "method"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("AudioStreamPlayer2")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"times": PackedFloat32Array(46.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_82r12"]
@@ -333,14 +461,14 @@ rotation = 3.14159
 scale = Vector2(0.608875, -0.608875)
 
 [node name="LeftLeg" type="Sprite2D" parent="SamirSkeleton"]
-position = Vector2(-28.4232, 12.4791)
-rotation = 0.85614
+position = Vector2(-12.3068, 18.8149)
+rotation = -0.210628
 scale = Vector2(0.232416, 0.232416)
 texture = ExtResource("2_4ddex")
 
 [node name="RightLeg" type="Sprite2D" parent="SamirSkeleton"]
-position = Vector2(28.1189, 13.2095)
-rotation = -0.849615
+position = Vector2(11.1636, 19.8031)
+rotation = 0.208147
 scale = Vector2(0.232415, 0.232415)
 texture = ExtResource("2_4ddex")
 
@@ -392,7 +520,7 @@ remote_path = NodePath("../../../LeftLeg")
 [node name="LegJoint2" type="Bone2D" parent="SamirSkeleton/Torso"]
 position = Vector2(14, 2)
 rotation = 0.729235
-scale = Vector2(0.999997, 0.999997)
+scale = Vector2(0.999996, 0.999996)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="SamirSkeleton/Torso/LegJoint2"]
 position = Vector2(17.9972, -1.04871)
@@ -411,13 +539,6 @@ z_index = -2
 position = Vector2(3782, 195)
 scale = Vector2(3.57583, 3.57583)
 texture = ExtResource("6_wbq28")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -1424.0
-offset_top = -2647.0
-offset_right = 9841.0
-offset_bottom = 4075.0
-color = Color(0, 0, 0, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_ewmas")
@@ -439,3 +560,31 @@ texture = ExtResource("9_7o38n")
 centered = false
 offset = Vector2(-512, 0)
 flip_h = true
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -1424.0
+offset_top = -2647.0
+offset_right = 9841.0
+offset_bottom = 4075.0
+color = Color(0, 0, 0, 1)
+
+[node name="Balloon" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(3821, 216)
+scale = Vector2(0.629616, 0.629616)
+texture = ExtResource("11_x8edg")
+flip_h = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Balloon"]
+offset_left = -251.0
+offset_top = -265.0
+offset_right = 295.0
+offset_bottom = 62.0
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 40
+text = "Então você é o herói que todos falam que irá me deter? Haha, desse tamanho não derrota nem uma formiga!
+"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_4yuuo")
+volume_db = 6.0

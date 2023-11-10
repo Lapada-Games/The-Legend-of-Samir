@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bad4xi7bsrb83"
+path="res://.godot/imported/Boss Defeated.mp3-686f21f4035b7862b7a4a463e713647a.mp3str"
+
+[deps]
+
+source_file="res://Assets/Audio/Boss Defeated.mp3"
+dest_files=["res://.godot/imported/Boss Defeated.mp3-686f21f4035b7862b7a4a463e713647a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

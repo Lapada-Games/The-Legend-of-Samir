@@ -7,4 +7,4 @@ enum {
 }
 
 var level = 0
-var difficulty = EASY
+var difficulty = HARD

@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3 uid="uid://dgjr8d6r0a8c3"]
+
+[ext_resource type="Texture2D" uid="uid://csu3efhjb04uj" path="res://Assets/the villain/euler.png" id="1_7rvbg"]
+
+[resource]
+atlas = ExtResource("1_7rvbg")
+region = Rect2(339, 59, 402, 370)
