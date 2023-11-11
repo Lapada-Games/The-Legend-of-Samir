@@ -1743,13 +1743,13 @@ script = ExtResource("2_mkpym")
 [node name="Skeleton2D" type="Skeleton2D" parent="SamirRig"]
 
 [node name="LeftLeg" type="Sprite2D" parent="SamirRig/Skeleton2D"]
-position = Vector2(-15.7037, 31.0147)
+position = Vector2(-15.7038, 19.0147)
 rotation = -0.01047
 scale = Vector2(0.232415, 0.232415)
 texture = ExtResource("3_7jmd0")
 
 [node name="RightLeg" type="Sprite2D" parent="SamirRig/Skeleton2D"]
-position = Vector2(15.0487, 31.9972)
+position = Vector2(15.0486, 19.9972)
 rotation = -0.00805008
 scale = Vector2(0.232416, 0.232416)
 texture = ExtResource("3_7jmd0")
