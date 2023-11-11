@@ -19,7 +19,8 @@ enum {
 
 var positions = [
 	Vector2(406, 57),
-	Vector2(406, 133)
+	Vector2(406, 130),
+	Vector2(406, 202)
 ]
 
 var operations = [
@@ -41,22 +42,14 @@ func setup(player_hp, boss_hp):
 func generate_operations():
 	var operations = []
 	for i in range(operations_length):
+		
 		var sign = rng.randi_range(0, 3)
 		operations.append([])
 		
 		var operation = ""
 		for j in range(2):
 			var new_operation = operation_string_generator(sign)
-			print(new_operation)
-			if j > 0:
-				var new_operation_answer = get_answer_from_string(new_operation)
-				var operation_answer = get_answer_from_string(operation)
-				# this prevents the operation to be the equivalent as the last one
-				while new_operation_answer == operation_answer:
-					new_operation = operation_string_generator(sign)
-					new_operation_answer = get_answer_from_string(new_operation)
 			operation = new_operation
-			
 			operations[i].append(operation)
 	
 	self.operations = operations
@@ -71,8 +64,10 @@ func generate_answers():
 	
 		if first > second:
 			answers.append(0)
-		else:
+		elif first == second:
 			answers.append(1)
+		else:
+			answers.append(2)
 	self.answers = answers
 func get_answer_from_string(string: String):
 	
@@ -159,7 +154,7 @@ func _process(delta):
 			update_cursor()
 		if Input.is_action_just_pressed("ui_down"):
 			index += 1
-			if index > 1: index = 1
+			if index > 2: index = 2
 			update_cursor()
 		
 		if Input.is_action_just_pressed("ui_accept"):

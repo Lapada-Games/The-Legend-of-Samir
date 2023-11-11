@@ -223,14 +223,14 @@ script = ExtResource("1_x7wb0")
 offset_left = 19.0
 offset_top = 25.0
 offset_right = 323.0
-offset_bottom = 165.0
+offset_bottom = 235.0
 
 [node name="Label" type="Label" parent="Operation1"]
 layout_mode = 0
 offset_left = 34.0
 offset_top = 22.0
 offset_right = 269.0
-offset_bottom = 112.0
+offset_bottom = 178.0
 theme_override_fonts/font = ExtResource("1_tsfvd")
 theme_override_font_sizes/font_size = 32
 text = "2 + 2"
@@ -241,14 +241,14 @@ vertical_alignment = 1
 offset_left = 480.0
 offset_top = 25.0
 offset_right = 784.0
-offset_bottom = 165.0
+offset_bottom = 235.0
 
 [node name="Label" type="Label" parent="Operation2"]
 layout_mode = 0
 offset_left = 34.0
 offset_top = 22.0
 offset_right = 269.0
-offset_bottom = 112.0
+offset_bottom = 178.0
 theme_override_fonts/font = ExtResource("1_tsfvd")
 theme_override_font_sizes/font_size = 32
 text = "3 + 5"
@@ -270,8 +270,23 @@ theme_override_font_sizes/font_size = 16
 text = ">"
 horizontal_alignment = 1
 
+[node name="Option3" type="Sprite2D" parent="."]
+position = Vector2(407, 130)
+scale = Vector2(2, 2)
+texture = ExtResource("2_7kbmt")
+
+[node name="Label" type="Label" parent="Option3"]
+offset_left = -19.0
+offset_top = -8.0
+offset_right = 19.0
+offset_bottom = 11.0
+theme_override_fonts/font = ExtResource("1_tsfvd")
+theme_override_font_sizes/font_size = 16
+text = "="
+horizontal_alignment = 1
+
 [node name="Option2" type="Sprite2D" parent="."]
-position = Vector2(407, 133)
+position = Vector2(407, 202)
 scale = Vector2(2, 2)
 texture = ExtResource("2_7kbmt")
 
@@ -313,8 +328,8 @@ sprite_frames = SubResource("SpriteFrames_sh58v")
 autoplay = "default"
 
 [node name="Timer" type="AnimatedSprite2D" parent="."]
-position = Vector2(408, 209)
-scale = Vector2(3, 3)
+position = Vector2(408, 276)
+scale = Vector2(4.25, 4.25)
 sprite_frames = SubResource("SpriteFrames_gaguf")
 autoplay = "default"
 

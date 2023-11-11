@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=3 uid="uid://x15dk5uwubmt"]
+[gd_scene load_steps=19 format=3 uid="uid://x15dk5uwubmt"]
 
+[ext_resource type="Script" path="res://Scenes/CastleCutscene.gd" id="1_glfiv"]
 [ext_resource type="Texture2D" uid="uid://bkhmell48sw6y" path="res://Assets/castle.png" id="1_qi6ur"]
 [ext_resource type="Texture2D" uid="uid://opjduxttip4x" path="res://Assets/The Hero/skeleton/leg.png" id="2_4ddex"]
 [ext_resource type="Texture2D" uid="uid://wvj46vi3vtqi" path="res://Assets/The Hero/skeleton/torso.png" id="3_rb2em"]
@@ -441,6 +442,7 @@ _data = {
 }
 
 [node name="CastleCutscene" type="Node2D"]
+script = ExtResource("1_glfiv")
 
 [node name="Castle" type="Sprite2D" parent="."]
 z_index = -1
@@ -461,14 +463,14 @@ rotation = 3.14159
 scale = Vector2(0.608875, -0.608875)
 
 [node name="LeftLeg" type="Sprite2D" parent="SamirSkeleton"]
-position = Vector2(-12.3068, 18.8149)
-rotation = -0.210628
+position = Vector2(-15.5828, 19.0193)
+rotation = -0.0175899
 scale = Vector2(0.232416, 0.232416)
 texture = ExtResource("2_4ddex")
 
 [node name="RightLeg" type="Sprite2D" parent="SamirSkeleton"]
-position = Vector2(11.1636, 19.8031)
-rotation = 0.208147
+position = Vector2(14.644, 20.0161)
+rotation = 0.0144199
 scale = Vector2(0.232415, 0.232415)
 texture = ExtResource("2_4ddex")
 
@@ -520,7 +522,7 @@ remote_path = NodePath("../../../LeftLeg")
 [node name="LegJoint2" type="Bone2D" parent="SamirSkeleton/Torso"]
 position = Vector2(14, 2)
 rotation = 0.729235
-scale = Vector2(0.999996, 0.999996)
+scale = Vector2(0.999995, 0.999995)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="SamirSkeleton/Torso/LegJoint2"]
 position = Vector2(17.9972, -1.04871)
@@ -576,6 +578,7 @@ texture = ExtResource("11_x8edg")
 flip_h = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Balloon"]
+visible = false
 offset_left = -251.0
 offset_top = -265.0
 offset_right = 295.0
@@ -588,3 +591,5 @@ text = "Então você é o herói que todos falam que irá me deter? Haha, desse 
 [node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_4yuuo")
 volume_db = 6.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

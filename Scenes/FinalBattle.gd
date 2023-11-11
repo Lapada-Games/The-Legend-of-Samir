@@ -39,7 +39,9 @@ func player_lose_hp():
 		$Comparations.disabled = true
 		$Comparations.visible = false
 		$SamirRig/SamirAnimations.play("dead2")
-		game_over = true
+
+func set_game_over(game_over):
+	self.game_over = game_over
 
 func _on_comparations_success():
 	$SamirRig/SamirAnimations.play("attack")
@@ -60,3 +62,10 @@ func _on_euler_attacked():
 func _on_samir_animations_animation_finished(anim_name):
 	if anim_name == "attack":
 		$SamirRig/SamirAnimations.play("idle")
+	elif anim_name == "shell_coming":
+		get_tree().change_scene_to_file("res://Scenes/ending.tscn")
+
+
+func _on_boss_animations_animation_finished(anim_name):
+	if anim_name == "euler_dead":
+		$SamirRig/SamirAnimations.play("shell_coming")

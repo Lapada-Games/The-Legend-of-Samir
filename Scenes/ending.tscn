@@ -1,0 +1,301 @@
+[gd_scene load_steps=13 format=3 uid="uid://ciousu26dmhna"]
+
+[ext_resource type="Script" path="res://Scenes/ending.gd" id="1_7focw"]
+[ext_resource type="Texture2D" uid="uid://kmbjcsclmu78" path="res://Assets/Ending/_10209877-1d14-473f-8eee-071f99712e16.jpeg" id="1_rwjp7"]
+[ext_resource type="Texture2D" uid="uid://cfw2ydieafmvp" path="res://Assets/Ending/_1ef53792-2b08-4a47-ba9e-214a44aa2c0c.jpeg" id="2_8q2rg"]
+[ext_resource type="Texture2D" uid="uid://s2b8d7ckie6d" path="res://Assets/Ending/_e3d29e2f-2fab-4956-afd6-e5a4307259f0.jpeg" id="3_1gslq"]
+[ext_resource type="Texture2D" uid="uid://b0i62imijo73q" path="res://Assets/The Hero/_2ac2b23c-2ab3-4916-9986-f16fde07d480.jpeg" id="4_tfqd6"]
+[ext_resource type="Texture2D" uid="uid://ok1nchmghlaa" path="res://Assets/Ending/_084b02f4-f363-439c-bd92-7f13c281c21b.jpeg" id="5_586mc"]
+[ext_resource type="Texture2D" uid="uid://uf3kej4jlsu4" path="res://Assets/Ending/_0459f157-5c73-42a1-aeb1-848804a3dd78.jpeg" id="6_2k1oy"]
+[ext_resource type="Texture2D" uid="uid://c4pbangtm3h4n" path="res://Assets/Ending/Credits.png" id="6_b5vk5"]
+[ext_resource type="AudioStream" uid="uid://b6adhrl4xcfuy" path="res://Assets/Audio/Credits.mp3" id="8_wmh8w"]
+
+[sub_resource type="Animation" id="Animation_p555c"]
+resource_name = "ending"
+length = 131.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 5, 10, 15, 20, 25, 30),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": ["Com a derrota de Euler, o Reino dos Números entrou em paz.", "Com a Concha restaurada, o Universo entrou em ordem novamente. E todas as pessoas ficaram felizes.", "Todos agradeceram ao herói que derrotou o terrível vilão.", "O nosso herói, Samir, será sempre lembrado nos livros de História!", "Uma lenda que prevalecerá e irá se repetir para sempre.", "Continue estudando para se tornar um grande mestre da Matemática (assim como o Samir).", "Obrigado por jogar e bons estudos!"]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Slide:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 5, 10, 15, 20, 25, 30),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_rwjp7"), ExtResource("2_8q2rg"), ExtResource("3_1gslq"), ExtResource("4_tfqd6"), ExtResource("5_586mc"), ExtResource("6_2k1oy"), null]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FadeOut:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5, 30, 35, 125, 130),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite2D:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 35),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("FadeOut:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 35, 125.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Credits:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(35, 120),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(463, 573), Vector2(463, -2026)]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath(".")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(131),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"go_to_main_menu"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_18u0u"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("RichTextLabel:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Com a derrota de Euler, o Reino dos Números entrou em paz novamente."]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Slide:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_rwjp7")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("FadeOut:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Credits:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(493, 573)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hxeby"]
+_data = {
+"RESET": SubResource("Animation_18u0u"),
+"ending": SubResource("Animation_p555c")
+}
+
+[node name="Ending" type="Node2D"]
+script = ExtResource("1_7focw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = -30.0
+offset_right = 816.0
+offset_bottom = 802.0
+color = Color(0, 0, 0, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 70.0
+offset_top = 412.0
+offset_right = 727.0
+offset_bottom = 561.0
+theme_override_font_sizes/normal_font_size = 24
+text = "Com a derrota de Euler, o Reino dos Números entrou em paz novamente."
+
+[node name="Slide" type="Sprite2D" parent="."]
+position = Vector2(234, 30)
+scale = Vector2(0.300781, 0.300781)
+texture = ExtResource("1_rwjp7")
+centered = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "ending"
+libraries = {
+"": SubResource("AnimationLibrary_hxeby")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-65, 0)
+scale = Vector2(0.587891, 0.587891)
+texture = ExtResource("6_b5vk5")
+centered = false
+
+[node name="Credits" type="RichTextLabel" parent="."]
+offset_left = 493.0
+offset_top = 573.0
+offset_right = 801.0
+offset_bottom = 2990.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[center]
+- Developed by -
+João Felipe
+Erich Lima
+Samir Alves
+
+- Arts -
+Bing Image Creator
+Itch.io
+
+- Writen by -
+João Felipe
+
+- Programming -
+João Felipe
+
+- Prototyping -
+Samir Alves
+
+- Concept Artist -
+Samir Alves
+Erich Lima
+
+- Game Design -
+Erich Lima
+
+- Made with -
+Godot 4.0.3
+LibreSprite
+Audacity
+GIMP
+
+- Music -
+The Legend of Zelda
+Super Mario Galaxy 2
+
+
+© Lapada Games 2023
+
+
+
+
+
+
+
+
+Obrigado por jogar!
+
+[/center]"
+scroll_active = false
+
+[node name="FadeOut" type="ColorRect" parent="."]
+offset_right = 810.0
+offset_bottom = 810.0
+color = Color(0, 0, 0, 0)
+
+[node name="Theme" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_wmh8w")
+volume_db = 1.0
+autoplay = true
