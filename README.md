@@ -29,3 +29,8 @@ O projeto foi criado utilizando a **Godot Game Engine** na **versão 4.0.3**, ma
 ## Links
 - [Página do jogo no itch.io](https://lapadagames.itch.io/the-legend-of-samir)
 - [Godot](https://godotengine.org/)
+
+## Licença
+
+MIT License  
+Copyright (c) 2023 Lapada Games
